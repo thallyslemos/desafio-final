@@ -1,18 +1,18 @@
 <div class="form-singin">
-  <form class="form mt-4" #loginForm="ngForm">
+  <form class="form mt-4" (ngSubmit)="login()" #loginForm="ngForm">
     <div class="text-center">
       <img class="mb-2" src="assets/img/ford.png" alt="Logo Ford" width="100" >
       <h1 class="h3 mb-3 fw-normal">Boa Vindas!</h1>
     </div>
     <div class="form-floating">
       <input class="form-control" id="floatingInput" placeholder="Nome do usuário"
-      name="usuario"  required="" />
+       [(ngModel)]="usuario" name="usuario"  required="" />
       <label for="floatingInput">Usuário</label>
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="floatingInput" placeholder="Senha"
-      name="senha" required=""/>
-      <label for="floatingInput">Senha</label>
+      <input type="password" class="form-control" id="floatingPassword" placeholder="Senha"
+      [(ngModel)]="senha" name="senha" required=""/>
+      <label for="floatingPassword">Senha</label>
     </div>
     <div class="checkbox mb-3">
       <label><input type="checkbox" value="conectarAutomático">Conectar Automático</label>

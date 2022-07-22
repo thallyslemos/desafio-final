@@ -16,6 +16,7 @@ import { FormComponent } from './form/form.component';
     CommonModule,
     LoginRoutingModule,
     FormsModule
-  ]
+  ],
+  exports: [LoginComponent]
 })
 export class LoginModule { }
