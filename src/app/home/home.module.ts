@@ -1,3 +1,5 @@
+import { RodapeModule } from './../componentes/rodape/rodape.module';
+import { CabecalhoModule } from './../componentes/cabecalho/cabecalho.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +13,9 @@ import { HomeComponent } from './home.component';
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    CabecalhoModule,
+    RodapeModule
   ]
 })
 export class HomeModule { }

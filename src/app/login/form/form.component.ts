@@ -18,12 +18,12 @@ export class FormComponent implements OnInit {
 
   login() {
     this.authService.autenticar(this.usuario, this.senha).subscribe(() =>{
-      this.router.navigate(['home'])
+      this.router.navigate(['home']);
     }, (error) => {
-      alert('usuario ou senha inválido')
+      alert('usuario ou senha inválido');
+      console.log(error)
     }
     )
-    console.log(this.usuario, this.senha);
   }
 
 }
