@@ -1,3 +1,4 @@
+import { DashboardGuard } from './autenticacao/dashboard.guard';
 import { LoginGuard } from './autenticacao/login.guard';
 import { AutenticacaoGuard } from './autenticacao/autenticacao.guard';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,8 @@ const routes: Routes = [
 //chamar guarda de rota aqui
   canLoad: [AutenticacaoGuard]
   },
+  {path: 'dashboard', loadChildren: ()=> import('./dashboard/dashboard.module').then(m =>m.DashboardModule),
+  canLoad: [DashboardGuard]}
 ];
 
 @NgModule({

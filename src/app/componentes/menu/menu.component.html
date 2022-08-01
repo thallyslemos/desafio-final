@@ -1,6 +1,7 @@
 <div [ngClass]='{"active-menu": mostraMenu}'>
   <div class="menu-bar">
-    <i class="fa fa-window-close" (click)="abreMenu()" (keyup.space)="abreMenu()"></i>
+    <i class="fa fa-window-close" (click)="abreMenu()" (keyup.space)="abreMenu()">      <img class="img-fluid " style="max-width:10vh ;" src="assets/img/ford.png" alt="Image Ford Ranger"/>
+    </i>
     <ng-content></ng-content>
   </div>
   <div class="overlay" (click)="abreMenu()"></div>

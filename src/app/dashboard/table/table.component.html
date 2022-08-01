@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col col-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr class="table" style="background-color: #1B357E; color: #ffffff; border-color: black;">
+            <th scope="col">Código - vn</th>
+            <th scope="col">Odômetro</th>
+            <th scope="col">Nível de combustível</th>
+            <th scope="col">status</th>
+            <th scope="col">Lat.</th>
+            <th scope="col">Long.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td >
+              <select class="form-control form-select mt-2 mb-3"  [(ngModel)]="codigoVn" (ngModelChange)="retornaDados()">
+                <option value="1">2FRHDUYS2Y63NHD22454</option>
+                <option value="2">2RFAASDY54E4HDU34874</option>
+                <option value="3">2FRHDUYS2Y63NHD22455</option>
+                <option value="4">2RFAASDY54E4HDU34875</option>
+                <option value="5">2FRHDUYS2Y63NHD22654</option>
+                <option value="6">2FRHDUYS2Y63NHD22854</option>
+              </select>
+              <!-- Como obter essas informações diretamente da API? -->
+            </td>
+            <!-- considerar a utilização de um módulo para exibir os ddos da tabela -->
+            <td>{{dados.odometer}} KM</td>
+            <td>{{dados.fuelLevel}} %</td>
+            <td>{{dados.status}}</td>
+            <td>{{dados.lat}}</td>
+            <td>{{dados.long}}</td>
+          </tr>
+        </tbody>
+        <tfoot class="table" style="background-color: #1B357E; color: #ffffff; border-color: rgb(19, 2, 67);">
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    </div>
+    </div>

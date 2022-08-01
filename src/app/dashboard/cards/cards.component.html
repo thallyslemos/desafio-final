@@ -1,0 +1,63 @@
+<div class="container" >
+    <div class="row align-itens-center">
+    <div class="col">
+      <div class="card text-bg-light">
+        <div class="card-header">
+          Veículo  {{id}}
+        </div>
+        <!-- Card de pesquisa com select -->
+        <div class="card-body">
+          <div class="form-group">
+            <select class="form-control form-select mt-2 mb-3"  [(ngModel)]="id" (ngModelChange)="retornaVeiculo()">
+              <option value="1">Ranger</option>
+              <option value="2">Mustang</option>
+              <option value="3">Territory</option>
+              <option value="4">Bronco Sport</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+        <!-- Cards com resposta. Devo colocar em um módulo separado? -->
+      <div class="card text-bg-light">
+        <div class="card-header">
+          Total de Vendas
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-primary" > {{veiculo$.volumetotal}}</h5>
+          <p class="card-text">Unid.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-bg-light">
+        <div class="card-header">
+          Conectados
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-primary">{{veiculo$.connected}}</h5>
+          <p class="card-text">Unid.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card text-bg-light">
+        <div class="card-header">
+          Update Software
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-primary">{{veiculo$.softwareUpdates}}</h5>
+          <p class="card-text">Unid.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- Imagem do veículo. Devo colocar em um módulo separado? -->
+    <div class="col-md-6 offset-md-3 pt-3">
+      <img class="img-fluid" src="{{imgVeiculo}}" alt="***INSERIR DESCRICAO****">
+    </div>
+  </div>
+</div>
+

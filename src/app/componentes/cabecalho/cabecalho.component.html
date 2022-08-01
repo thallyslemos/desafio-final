@@ -1,23 +1,32 @@
 <header class="sticky-top">
-  <nav class="navbar navbar-ligth bg-primary">
-    <a class="navbar-brand">
-      <i class="fa fa-bars mr-2" (click)="menu.abreMenu()" (keyup.space)="menu.abreMenu()">
+  <div class="text-white" *ngIf="user$ | async as user">
+    <div *ngIf="user.name">
+  <nav class="navbar" style="background-color: #1B357E ;">
+    <a class="navbar-brand text-white">
+        <i class="fa fa-bars mx-2" (click)="menu.abreMenu()" (keyup.space)="menu.abreMenu()">
 
-      </i>Ford</a>
-    <app-menu #menu>
-      <ul class="list-unstyled">
-        <li>
-          <a [routerLink]="['', 'home']">Home</a>
-        </li>
-        <li>
-          <a [routerLink]="">Dashboard</a>
-        </li>
-      </ul>
-    </app-menu>
-    <div *ngIf="user$ | async as user">
-      <i class="fa fa-user-circle mr-1"></i>
-      <a class="mr-1">{{user.name}}</a>
-      <a (click)="logout()">Logout</a>
+        </i>Ford</a>
+      <app-menu #menu>
+        <ul class="list-unstyled">
+          <li>
+            <a [routerLink]="['home']">Home</a>
+          </li>
+          <li>
+            <a [routerLink]="['dashboard']">Dashboard</a>
+          </li>
+        </ul>
+      </app-menu>
+      <div class="mx-2">
+        <i class="fa fa-user-circle text-white"></i>
+        <a class="mx-1">{{ user.name }}</a>
+        <a (click)="logout()">Logout</a>
+      </div>
+      </nav>
     </div>
-  </nav>
+</div>
+  <ng-template #login>
+    <span class="navbar-text">
+      <a [routerLink]="['']">Login</a>
+    </span>
+  </ng-template>
 </header>
