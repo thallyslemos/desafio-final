@@ -1,9 +1,7 @@
-import { Veiculo } from './../cards/veiculos';
 import { environment } from './../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TabelaAPI, Table, Tables } from './table';
-import { map, tap } from 'rxjs/operators'
+import { Table } from './table';
 const API = environment.apiURL
 
 @Injectable({
