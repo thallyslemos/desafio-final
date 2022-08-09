@@ -13,5 +13,5 @@ export interface Table {
 }
 
 export interface TabelaAPI {
-  vehicledata: Tables;
+  vehicleData: Tables;
 }

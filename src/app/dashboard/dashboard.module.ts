@@ -6,20 +6,23 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { TableComponent } from './table/table.component';
 import { CardsComponent } from './cards/cards.component';
-import {  FormsModule } from '@angular/forms';
+import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TableCelComponent } from './table/table-cel/table-cel.component';
 
 
 @NgModule({
   declarations: [
     DashboardComponent,
     TableComponent,
-    CardsComponent
+    CardsComponent,
+    TableCelComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     CabecalhoModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class DashboardModule { }

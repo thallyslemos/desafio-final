@@ -1,0 +1,8 @@
+.bgRanger{
+    background-image: url('src\assets\img\ranger.png') ;
+    background-size:100%;
+    background-repeat: no-repeat;
+    margin-top: 20vh;
+    min-height: 70vh;
+
+}

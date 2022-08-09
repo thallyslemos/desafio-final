@@ -2,21 +2,22 @@
   <form class="form mt-4" (ngSubmit)="login()" #loginForm="ngForm">
     <div class="text-center">
       <img class="mb-2" src="assets/img/ford.png" alt="Logo Ford" width="100" >
-      <h1 class="h3 mb-3 fw-normal">Boa Vindas!</h1>
+      <h2 class="text azulFord m-3 fw-bolder">Bem Vindo</h2>
     </div>
-    <div class="form-floating">
+    <div class="form-floating mb-2">
       <input class="form-control" id="floatingInput" placeholder="Nome do usuário"
        [(ngModel)]="usuario" name="usuario"  required="" />
       <label for="floatingInput">Usuário</label>
     </div>
-    <div class="form-floating">
+    <div class="form-floating mb-2">
       <input type="password" class="form-control" id="floatingPassword" placeholder="Senha"
       [(ngModel)]="senha" name="senha" required=""/>
       <label for="floatingPassword">Senha</label>
     </div>
-    <div class="checkbox mb-3">
+    <!-- Implementar funcionalidde a esse botão -->
+    <div class="checkbox mb-2">
       <label><input type="checkbox" value="conectarAutomático">Conectar Automático</label>
     </div>
-    <button type="submit" class="w-100 btn btn-lg btn-primary">Login</button>
+    <button type="submit" class="w-100 btn btn-lg botaoFord">Login</button>
   </form>
 </div>

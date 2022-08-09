@@ -1,5 +1,6 @@
-import { Veiculo, Veiculos } from './veiculos';
-import { HttpClient } from '@angular/common/http';
+import { tap, pluck, map } from 'rxjs';
+import { Veiculo, Veiculos, VeiculosAPI } from './veiculos';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { Injectable } from '@angular/core';
 
@@ -12,10 +13,21 @@ export class VeiculosService {
 
   constructor(private http: HttpClient) { }
 
-  getVeiculos(id: number) { // Busca veiculo por id na api
+  getVeiculoById(id: number) { // Busca veiculo por id na api
     console.log(this.http.get<Veiculo>(`${API}/vehicle/${id}`))
     return this.http.get<Veiculo>(`${API}/vehicle/${id}`)
   }
+  getVeiculosArray() { // Busca o array de veiculos na API
+    console.log(this.http.get<VeiculosAPI>(`${API}/vehicle`))
+    return this.http.get<VeiculosAPI>(`${API}/vehicle`)
+  }
+  getVeiculos(valor?: string){ console.log('Mim chamôuuu?')
+  const params = valor ? new HttpParams().append('valor', valor) : undefined;
+  return this.http.get<VeiculosAPI>(`${API}/vehicle`, { params }).pipe(
+    tap((valor)=>console.log(valor)),
+    pluck('vehicle')
+  )
+}
 
   getImage(id: number, img: string) { // Busca imagem por id
     if(id == 1) {

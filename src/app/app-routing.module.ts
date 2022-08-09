@@ -10,7 +10,7 @@ const routes: Routes = [
   canLoad: [LoginGuard]},
   {path: 'home', loadChildren: ()=> import('./home/home.module').then(m => m.HomeModule),
 //chamar guarda de rota aqui
-  canLoad: [AutenticacaoGuard]
+  canLoad: [AutenticacaoGuard] //falha: ao deslogar é possível burlar a guarda com o botão de voltar
   },
   {path: 'dashboard', loadChildren: ()=> import('./dashboard/dashboard.module').then(m =>m.DashboardModule),
   canLoad: [DashboardGuard]}

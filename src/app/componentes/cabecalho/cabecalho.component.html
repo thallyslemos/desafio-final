@@ -1,25 +1,28 @@
 <header class="sticky-top">
   <div class="text-white" *ngIf="user$ | async as user">
     <div *ngIf="user.name">
-  <nav class="navbar" style="background-color: #1B357E ;">
+  <nav class="navbar ESTILOAZUL" >
     <a class="navbar-brand text-white">
         <i class="fa fa-bars mx-2" (click)="menu.abreMenu()" (keyup.space)="menu.abreMenu()">
 
         </i>Ford</a>
       <app-menu #menu>
-        <ul class="list-unstyled">
-          <li>
+        <a class="navbar-brand">
+          <img src="assets\img\ford.png" width="50">
+        </a>
+        <ul class="list-example">
+          <li class="p-1 rounded">
             <a [routerLink]="['home']">Home</a>
           </li>
-          <li>
+          <li class="p-1 rounded">
             <a [routerLink]="['dashboard']">Dashboard</a>
           </li>
         </ul>
       </app-menu>
       <div class="mx-2">
-        <i class="fa fa-user-circle text-white"></i>
+        <i class="fa fa-user-circle "></i>
         <a class="mx-1">{{ user.name }}</a>
-        <a (click)="logout()">Logout</a>
+        <i (click)="logout()">Logout</i>
       </div>
       </nav>
     </div>

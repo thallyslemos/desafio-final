@@ -17,12 +17,12 @@ export class FormComponent implements OnInit {
   }
 
   login() {
-    this.authService.autenticar(this.usuario, this.senha).subscribe(() =>{
+    this.authService.autenticar(this.usuario, this.senha).subscribe({next:() =>{
       this.router.navigate(['home']);
-    }, (error) => {
+    }, error: (error) => {
       alert('usuario ou senha inválido');
       console.log(error)
-    }
+    }}
     )
   }
 

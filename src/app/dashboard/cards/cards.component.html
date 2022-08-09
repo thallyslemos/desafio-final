@@ -1,63 +1,61 @@
-<div class="container" >
+<div class="container">
+  <div *ngIf="veiculo$; else elseblock " >
     <div class="row align-itens-center">
-    <div class="col">
-      <div class="card text-bg-light">
-        <div class="card-header">
-          Veículo  {{id}}
-        </div>
+      <div class="col-sm mb-2">
+        <div class="card  h-100">
+          <div class="card-header ESTILOAZUL">
+            Veículo  {{id}}
+          </div>
         <!-- Card de pesquisa com select -->
-        <div class="card-body">
-          <div class="form-group">
-            <select class="form-control form-select mt-2 mb-3"  [(ngModel)]="id" (ngModelChange)="retornaVeiculo()">
-              <option value="1">Ranger</option>
-              <option value="2">Mustang</option>
-              <option value="3">Territory</option>
-              <option value="4">Bronco Sport</option>
+          <div class="card-body ">
+            <select class="form-select mt-2 mb-3" [(ngModel)]="id" (ngModelChange)="retornaVeiculo()" >
+              <option *ngFor="let veiculo of veiculosArray$" ng [ngValue]="veiculo.id">{{veiculo.vehicle}}</option>
             </select>
           </div>
         </div>
       </div>
-    </div>
-    <div class="col">
-        <!-- Cards com resposta. Devo colocar em um módulo separado? -->
-      <div class="card text-bg-light">
-        <div class="card-header">
-          Total de Vendas
+    <!-- Cards com resposta. Devo colocar em um módulo separado? -->
+      <div class="col-sm mb-2">
+        <div class="card h-100">
+          <div class="card-header ESTILOAZUL">
+            Total de Vendas
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-primary" > {{veiculo$.volumetotal}}</h5>
+            <p class="card-text">Unid.</p>
+          </div>
         </div>
-        <div class="card-body">
-          <h5 class="card-title text-primary" > {{veiculo$.volumetotal}}</h5>
-          <p class="card-text">Unid.</p>
+      </div>
+      <div class="col-sm mb-2">
+        <div class="card h-100">
+          <div class="card-header ESTILOAZUL">
+            Conectados
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-primary">{{veiculo$.connected}}</h5>
+            <p class="card-text">Unid.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm mb-2">
+        <div class="card h-100">
+          <div class="card-header ESTILOAZUL">
+            Update Software
+          </div>
+          <div class="card-body ">
+            <h5 class="card-title text-primary">{{veiculo$.softwareUpdates}}</h5>
+            <p class="card-text">Unid.</p>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col">
-      <div class="card text-bg-light">
-        <div class="card-header">
-          Conectados
-        </div>
-        <div class="card-body">
-          <h5 class="card-title text-primary">{{veiculo$.connected}}</h5>
-          <p class="card-text">Unid.</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card text-bg-light">
-        <div class="card-header">
-          Update Software
-        </div>
-        <div class="card-body">
-          <h5 class="card-title text-primary">{{veiculo$.softwareUpdates}}</h5>
-          <p class="card-text">Unid.</p>
-        </div>
-      </div>
+    <div class="row h-100">
+      <!-- Imagem do veículo. Devo colocar em um módulo separado? -->
+      <!-- crir um coponente com nome adequado -->
+      <app-table-cel [img]="imgVeiculo"></app-table-cel>
     </div>
   </div>
-  <div class="row">
-    <!-- Imagem do veículo. Devo colocar em um módulo separado? -->
-    <div class="col-md-6 offset-md-3 pt-3">
-      <img class="img-fluid" src="{{imgVeiculo}}" alt="***INSERIR DESCRICAO****">
-    </div>
-  </div>
+  <!-- Mensagem de erro -->
+  <ng-template #elseblock><p> Não há dados </p></ng-template>
 </div>
 
