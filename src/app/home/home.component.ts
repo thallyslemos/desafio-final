@@ -1,3 +1,4 @@
+import { UsuarioService } from './../autenticacao/usuario/usuario.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  user$ = this.usuarioService.retornaUsuario()
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
   }

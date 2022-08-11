@@ -1,35 +1,78 @@
 <header class="sticky-top">
   <div class="text-white" *ngIf="user$ | async as user">
-    <div *ngIf="user.name">
-  <nav class="navbar ESTILOAZUL" >
-    <a class="navbar-brand text-white">
-        <i class="fa fa-bars mx-2" (click)="menu.abreMenu()" (keyup.space)="menu.abreMenu()">
-
-        </i>Ford</a>
-      <app-menu #menu>
-        <a class="navbar-brand">
-          <img src="assets\img\ford.png" width="50">
-        </a>
-        <ul class="list-example">
-          <li class="p-1 rounded">
-            <a [routerLink]="['home']">Home</a>
-          </li>
-          <li class="p-1 rounded">
-            <a [routerLink]="['dashboard']">Dashboard</a>
-          </li>
-        </ul>
-      </app-menu>
-      <div class="mx-2">
-        <i class="fa fa-user-circle "></i>
-        <a class="mx-1">{{ user.name }}</a>
-        <i (click)="logout()">Logout</i>
-      </div>
+    <div *ngIf="(user.name); else userLoggedOut">
+      <nav class="navbar ESTILOAZUL" >
+        <button class="navbar-toggler text-white" (click)="menu.abreMenu()" (keyup.space)="menu.abreMenu()">
+        <i class="fa fa-bars mx-2"></i>
+        <i class="">Ford</i>
+        </button>
+        <app-menu #menu>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-action list-group-item-light p-3">
+              <a class="nav-link FONTEAZUL" [routerLink]="['home']" aria-current="home">Home</a>
+            </li>
+            <li class="list-group-item list-group-item-action list-group-item-light p-3">
+              <a class="nav-link FONTEAZUL" [routerLink]="['dashboard']">Dashboard</a>
+            </li>
+          </ul>
+        </app-menu>
+        <div class="mx-2">
+          <i class="fa fa-user-circle "></i>
+          <a class="link-primary fw-bold mx-1">{{ user.name }}</a>
+          <a href="#" class="link-light" (click)="logout()">Logout <i class="fa fa-sign-out"></i></a>
+        </div>
       </nav>
     </div>
-</div>
-  <ng-template #login>
-    <span class="navbar-text">
-      <a [routerLink]="['']">Login</a>
-    </span>
-  </ng-template>
+    <ng-template #userLoggedOut>
+      <nav class="navbar ESTILOAZUL p-2" >
+        <span class="fw-bold m-x2">Sistema de Dados Ford</span>
+        <div class="mx-2">
+          <span class="mx-1">Login</span>
+          <i class="fa fa-sign-in"></i>
+        </div>
+      </nav>
+    </ng-template>
+  </div>
 </header>
+
+<!-- <nav class="navbar bg-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Offcanvas navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav> -->

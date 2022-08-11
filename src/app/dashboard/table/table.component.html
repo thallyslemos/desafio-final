@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row">
-    <div class="col col-12 ">
-      <table class="table table-bordered">
+  <div class="row" *ngIf="veiculos$ | async as veiculos">
+    <div class="col col-12" >
+      <table class="table table-bordered shadow bg-body rounded">
         <thead>
           <tr class="table ESTILOAZUL" >
             <th scope="col">Código - vin</th>
@@ -12,7 +12,7 @@
             <th scope="col">Long.</th>
           </tr>
         </thead>
-        <tbody *ngIf="veiculos$ | async as veiculos">
+        <tbody >
           <tr >
             <td >
               <input type="search" class="form-control"  placeholder="{{veiculos[0].vin}}" [formControl]="vehicleDataInput" >

@@ -1,18 +1,16 @@
 <div class="container">
   <div
     class="position-relative justify-content-center align-items-center bgRanger">
-      <!-- Backgroung com imagem responsiva em CSS -->
       <div class="p-5 position-absolute start-50 top-50
       9  translate-middle w-75 h-100" >
-        <div class="card opacity-75" >
+        <div class="card opacity-75 FONTEAZUL">
           <div class="card-header">
-            Sistema de Dados Ford
-          </div>
-          <div class="card-body">
-            <blockquote class="blockquote pb-5">
-              <!-- inserir nome do usuariodinamicamente -->
-              <p>Seja bem vindo(a)!</p>
-            </blockquote>
+              <h5 class="card-title m-0">
+                Sistema de Dados Ford
+              </h5>
+            </div>
+          <div class="card-body"*ngIf="user$ |async as user">
+              <p class="card-text mb-8 pb-5" *ngIf="user.name">Seja bem vindo(a) {{user.name}}!</p>
           </div>
         </div>
     </div>

@@ -1,3 +1,4 @@
+// Table é uma interface para receber vehicleData da api para consumir na tabela
 export interface Tables extends Array<Table> {}
 
 export interface Table {

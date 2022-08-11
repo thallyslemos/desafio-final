@@ -13,12 +13,10 @@ export class AutenticacaoGuard implements CanLoad {
     route: Route,
     segments: UrlSegment[]): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-//ARRUMAR ISSO AQUI
-      if(!this.usuarioService.estaLogado()){
-        this.router.navigate([''])
-        return false
-      }
+    if(!this.usuarioService.estaLogado()){
+      this.router.navigate([''])
+      return false
+    }
   return true;
-  console.log('Nem to logado')
   }
 }

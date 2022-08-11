@@ -7,6 +7,7 @@ import { VeiculosService } from './veiculos.service';
   templateUrl: './cards.component.html',
   styleUrls: ['./cards.component.css']
 })
+// Considerar a utilização de Observable para receber os dados da api
 export class CardsComponent implements OnInit {
   id: number = 1 // Recebe o id do veículo no template após a mudança no input Select
   veiculo$!:Veiculo  // Recebe um resultado da requisição ao backend que será um veiculo definido pelo ID

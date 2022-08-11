@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CabecalhoComponent{
   user$ = this.usuarioService.retornaUsuario()
+  userLog =this.usuarioService.estaLogado()
   constructor(private usuarioService: UsuarioService, private router: Router) { }
 
   logout(){

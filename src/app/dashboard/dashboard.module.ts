@@ -7,7 +7,7 @@ import { DashboardComponent } from './dashboard.component';
 import { TableComponent } from './table/table.component';
 import { CardsComponent } from './cards/cards.component';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TableCelComponent } from './table/table-cel/table-cel.component';
+import { ImgVaiculoComponent } from './cards/img-vaiculo/img-vaiculo.component';
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import { TableCelComponent } from './table/table-cel/table-cel.component';
     DashboardComponent,
     TableComponent,
     CardsComponent,
-    TableCelComponent
+    ImgVaiculoComponent
   ],
   imports: [
     CommonModule,

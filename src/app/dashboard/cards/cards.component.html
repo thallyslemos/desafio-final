@@ -1,61 +1,67 @@
 <div class="container">
-  <div *ngIf="veiculo$; else elseblock " >
-    <div class="row align-itens-center">
-      <div class="col-sm mb-2">
-        <div class="card  h-100">
-          <div class="card-header ESTILOAZUL">
-            Veículo  {{id}}
+  <div *ngIf="veiculo$">
+    <div [hidden]="!veiculo$" >
+      <div class="row align-itens-center">
+        <div class="col-sm mb-2">
+          <div class="card  h-100">
+            <div class="card-header ESTILOAZUL">
+              Veículo
+            </div>
+          <!-- Card de pesquisa com select -->
+            <div class="card-body shadow-sm bg-body rounded">
+              <select class="form-select mt-2 mb-3" [(ngModel)]="id" (ngModelChange)="retornaVeiculo()" >
+                <option *ngFor="let veiculo of veiculosArray$" ng [ngValue]="veiculo.id">{{veiculo.vehicle}}</option>
+              </select>
+            </div>
           </div>
-        <!-- Card de pesquisa com select -->
-          <div class="card-body ">
-            <select class="form-select mt-2 mb-3" [(ngModel)]="id" (ngModelChange)="retornaVeiculo()" >
-              <option *ngFor="let veiculo of veiculosArray$" ng [ngValue]="veiculo.id">{{veiculo.vehicle}}</option>
-            </select>
+        </div>
+      <!-- Cards com resposta. Devo colocar em um módulo separado? -->
+        <div class="col-sm mb-2">
+          <div class="card h-100 shadow-sm bg-body rounded">
+            <div class="card-header ESTILOAZUL">
+              Total de Vendas
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-primary" > {{veiculo$.volumetotal}}</h5>
+              <p class="card-text">Unid.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm mb-2">
+          <div class="card h-100 shadow-sm bg-body rounded">
+            <div class="card-header ESTILOAZUL">
+              Conectados
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-primary">{{veiculo$.connected}}</h5>
+              <p class="card-text">Unid.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm mb-2">
+          <div class="card h-100 shadow-sm bg-body rounded">
+            <div class="card-header ESTILOAZUL">
+              Update Software
+            </div>
+            <div class="card-body ">
+              <h5 class="card-title text-primary">{{veiculo$.softwareUpdates}}</h5>
+              <p class="card-text">Unid.</p>
+            </div>
           </div>
         </div>
       </div>
-    <!-- Cards com resposta. Devo colocar em um módulo separado? -->
-      <div class="col-sm mb-2">
-        <div class="card h-100">
-          <div class="card-header ESTILOAZUL">
-            Total de Vendas
-          </div>
-          <div class="card-body">
-            <h5 class="card-title text-primary" > {{veiculo$.volumetotal}}</h5>
-            <p class="card-text">Unid.</p>
-          </div>
-        </div>
+      <div class="row h-100">
+        <!-- Ajustar altura dessa div -->
+        <app-img-vaiculo [img]="imgVeiculo"></app-img-vaiculo>
       </div>
-      <div class="col-sm mb-2">
-        <div class="card h-100">
-          <div class="card-header ESTILOAZUL">
-            Conectados
-          </div>
-          <div class="card-body">
-            <h5 class="card-title text-primary">{{veiculo$.connected}}</h5>
-            <p class="card-text">Unid.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm mb-2">
-        <div class="card h-100">
-          <div class="card-header ESTILOAZUL">
-            Update Software
-          </div>
-          <div class="card-body ">
-            <h5 class="card-title text-primary">{{veiculo$.softwareUpdates}}</h5>
-            <p class="card-text">Unid.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row h-100">
-      <!-- Imagem do veículo. Devo colocar em um módulo separado? -->
-      <!-- crir um coponente com nome adequado -->
-      <app-table-cel [img]="imgVeiculo"></app-table-cel>
     </div>
   </div>
   <!-- Mensagem de erro -->
-  <ng-template #elseblock><p> Não há dados </p></ng-template>
+  <div [hidden]="veiculo$" >
+    <div class="row">
+      <div class="alert alert-warning" role="alert">
+        <i class="fa fa-exclamation-triangle"></i> Um erro ocorreu na requisição de dados.
+      </div>
+    </div>
+  </div>
 </div>
-

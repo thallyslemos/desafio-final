@@ -8,6 +8,7 @@ const API = environment.apiURL
 @Injectable({
   providedIn: 'root'
 })
+// Table de vehicleData
 export class TableService {
 
   constructor(private http: HttpClient) { }
@@ -16,17 +17,16 @@ export class TableService {
     return this.http.get<Table>(`${API}/vehicledata/${codigoVn}`)
   }
   getVehicleDataApi(){
-    console.log(this.http.get<TabelaAPI>(`${API}/vehicleData`))
     return this.http.get<TabelaAPI>(`${API}/vehicleData`)
     // .pipe(
     //   tap((valor)=> console.log(valor)),
     //   map((data)=> data.vehicledata.sort((veiculoA, veiculoB) => this.ordenaPorCodigo(veiculoA, veiculoB))))
   }
-  getVeiculos(valor?: string){ console.log('Mim chamô?')
+  getVeiculos(valor?: string){
     const params = valor ? new HttpParams().append('valor', valor) : undefined;
     return this.http.get<TabelaAPI>(`${API}/vehicleData`, { params }).pipe(
       tap((valor)=>console.log(valor)),
-      pluck('vehicleData'),
+      pluck('vehicleData'), //corrigir*****
       map((veiculos)=>
       veiculos.sort((veiculoA, veiculoB)=> this.ordenaPorCodigo(veiculoA, veiculoB)))
     )
