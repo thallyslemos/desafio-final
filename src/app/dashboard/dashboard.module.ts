@@ -8,6 +8,7 @@ import { TableComponent } from './table/table.component';
 import { CardsComponent } from './cards/cards.component';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImgVaiculoComponent } from './cards/img-vaiculo/img-vaiculo.component';
+import { GraficoComponent } from './cards/grafico/grafico.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ImgVaiculoComponent } from './cards/img-vaiculo/img-vaiculo.component';
     DashboardComponent,
     TableComponent,
     CardsComponent,
-    ImgVaiculoComponent
+    ImgVaiculoComponent,
+    GraficoComponent
   ],
   imports: [
     CommonModule,
