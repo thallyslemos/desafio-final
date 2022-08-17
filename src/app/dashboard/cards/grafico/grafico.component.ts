@@ -1,6 +1,6 @@
 import { Veiculo } from './../veiculos';
 import { Component, ElementRef, Input, OnInit, SimpleChange, ViewChild } from '@angular/core';
-import { Chart, registerables  } from 'chart.js'
+import { Chart, registerables } from 'chart.js'
 
 @Component({
   selector: 'app-grafico',
@@ -9,7 +9,7 @@ import { Chart, registerables  } from 'chart.js'
 })
 export class GraficoComponent implements OnInit {
 
-  myChart!: Chart<any>;
+  myChart!: Chart<any, any[], unknown>;
 
   @Input() veiculo!:any
 
@@ -20,14 +20,16 @@ export class GraficoComponent implements OnInit {
   }
 
   ngOnInit(){
-    this.retornaGrafico(this.veiculo)
   }
   ngOnChanges(changes: SimpleChange){
-    this.limpaGrafico()
     this.retornaGrafico(this.veiculo)
   }
 
   retornaGrafico(veiculo: Veiculo){
+
+    if(typeof this.myChart == 'object'){
+      this.myChart.destroy()  // destruirá o objeto instanciado na variavel para instanciar um novo
+    }
     this.myChart = new Chart(this.elemnento.nativeElement, {
       type: 'doughnut',
       data: {
@@ -39,17 +41,12 @@ export class GraficoComponent implements OnInit {
                   '#010c2a',
                   '#01025c',
                   '#1300fa'
-              ]
+              ],
+              hoverOffset: 4
           }]
       },
       options: {
       }
    });
-
   }
-  limpaGrafico(){
-    this.myChart.destroy()
-  }
-
-
 }

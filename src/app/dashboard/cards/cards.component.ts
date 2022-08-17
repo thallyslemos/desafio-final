@@ -9,7 +9,7 @@ import { VeiculosService } from './veiculos.service';
 })
 // Considerar a utilização de Observable para receber os dados da api
 export class CardsComponent implements OnInit {
-  id: number = 2 // Recebe o id do veículo no template após a mudança no input Select
+  id: number = 1 // Recebe o id do veículo no template após a mudança no input Select
   veiculo$!:Veiculo  // Recebe um resultado da requisição ao backend que será um veiculo definido pelo ID
   veiculosArray$!: Veiculos // Recebe *** um array de veiculos
   imgVeiculo!: string // Recebe o caminho da imagem do veículo selecionado
