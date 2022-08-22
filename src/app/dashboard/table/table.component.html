@@ -14,14 +14,19 @@
         </thead>
         <tbody >
           <tr >
-            <td >
-              <input type="search" class="form-control"  placeholder="{{veiculos[0].vin}}" [formControl]="vehicleDataInput" >
+            <td>
+              <div *ngIf="veiculos.length != 0; else celulas">Insira o código VIN</div>
+              <ng-template #celulas>
+              <span class="text text-danger">Código vin inválido</span>
+              </ng-template>
+              <input type="search" class="form-control"  placeholder="Código Vin" maxlength="20"
+              [formControl]="vehicleDataInput" [ngModel]="veiculos[0].vin">
             </td>
-            <td>{{veiculos[0].odometer}} KM</td>
-            <td>{{veiculos[0].fuelLevel}} %</td>
-            <td>{{veiculos[0].status}}</td>
-            <td>{{veiculos[0].lat}}</td>
-            <td>{{veiculos[0].long}}</td>
+              <td>{{veiculos[0].odometer}} KM</td>
+              <td>{{veiculos[0].fuelLevel}} %</td>
+              <td>{{veiculos[0].status}}</td>
+              <td>{{veiculos[0].lat}}</td>
+              <td>{{veiculos[0].long}}</td>
           </tr>
         </tbody>
         <tfoot class="table ESTILOAZUL" >

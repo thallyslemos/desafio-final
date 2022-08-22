@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Table, Tables } from './table';
 import { FormControl } from '@angular/forms';
 
+
 const API = environment.apiURL
 @Component({
   selector: 'app-table',
@@ -13,8 +14,7 @@ const API = environment.apiURL
 })
 export class TableComponent implements OnInit {
   // input = ""
-  codigoVn: string = "1" //a tabela inicia com o veiculo de ID 1
-  dados!: Table //dados de vehicle data que serão exibidos na tabela
+  dados!: any //dados de vehicle data que serão exibidos na tabela
   vehicleDataArray!: Tables
 
   vehicleDataInput = new FormControl();
@@ -22,10 +22,10 @@ export class TableComponent implements OnInit {
     tap(()=>{console.log('Fluxo Inicial')})
   )
   filtroPorInput$ = this.vehicleDataInput.valueChanges.pipe(
-    debounceTime(300),
+    debounceTime(100),
     tap(()=>{console.log('Fluxo Filtro')}),
     tap(console.log),
-    filter((valorDigitado)=> valorDigitado.length >= 3 || !valorDigitado.length),
+    filter((valorDigitado)=> valorDigitado.length == 20 || !valorDigitado.length),
     distinctUntilChanged(),
     switchMap((valorDigitado)=> this.table.getVeiculos(valorDigitado)),
     tap(console.log)
@@ -41,9 +41,8 @@ export class TableComponent implements OnInit {
   }
 
   retornaDados() { //método será chamado ao carregar a página e ao mudar o campo de seleção da tabela
-    return this.table.getVehicledataById(this.codigoVn).subscribe({next:(data)=>{this.dados = data},
+    return this.table.getVeiculos().subscribe({next:(data)=>{this.dados = data},
     error:(error)=>{console.log(error)}})
-
   }
   // onSearch() {
   //   console.log(this.vehicleDataInput);

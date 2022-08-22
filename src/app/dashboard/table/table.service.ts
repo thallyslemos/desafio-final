@@ -13,22 +13,21 @@ export class TableService {
 
   constructor(private http: HttpClient) { }
 
-  getVehicledataById(codigoVn: string) {//Busca veiculo por id associado ao código vn no template
-    return this.http.get<Table>(`${API}/vehicledata/${codigoVn}`)
-  }
-  getVehicleDataApi(){
-    return this.http.get<TabelaAPI>(`${API}/vehicleData`)
+  // getVehicledataById(codigoVn: string) {//Busca veiculo por id associado ao código vn no template
+  //   return this.http.get<Table>(`${API}/vehicledata/${codigoVn}`)
+  // }
+  // getVehicleDataApi(){
+  //   return this.http.get<TabelaAPI>(`${API}/vehicleData`)
     // .pipe(
     //   tap((valor)=> console.log(valor)),
     //   map((data)=> data.vehicledata.sort((veiculoA, veiculoB) => this.ordenaPorCodigo(veiculoA, veiculoB))))
-  }
+  // }
   getVeiculos(valor?: string){
     const params = valor ? new HttpParams().append('valor', valor) : undefined;
     return this.http.get<TabelaAPI>(`${API}/vehicleData`, { params }).pipe(
-      tap((valor)=>console.log(valor)),
-      pluck('vehicleData'), //corrigir*****
+      tap((valor)=>console.log(valor.vehicleData.length)),
       map((veiculos)=>
-      veiculos.sort((veiculoA, veiculoB)=> this.ordenaPorCodigo(veiculoA, veiculoB)))
+      veiculos.vehicleData.sort((veiculoA, veiculoB)=> this.ordenaPorCodigo(veiculoA, veiculoB)))
     )
   }
   private ordenaPorCodigo(veiculoA: Table, veiculoB: Table) {
