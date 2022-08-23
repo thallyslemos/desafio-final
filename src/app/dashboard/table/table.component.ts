@@ -22,10 +22,10 @@ export class TableComponent implements OnInit {
     tap(()=>{console.log('Fluxo Inicial')})
   )
   filtroPorInput$ = this.vehicleDataInput.valueChanges.pipe(
-    debounceTime(100),
+    debounceTime(300),
     tap(()=>{console.log('Fluxo Filtro')}),
     tap(console.log),
-    filter((valorDigitado)=> valorDigitado.length == 20 || !valorDigitado.length),
+    filter((valorDigitado)=> valorDigitado.length >= 19 || !valorDigitado.length),
     distinctUntilChanged(),
     switchMap((valorDigitado)=> this.table.getVeiculos(valorDigitado)),
     tap(console.log)

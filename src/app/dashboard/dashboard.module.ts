@@ -1,3 +1,4 @@
+import { CelComponent } from './../dashboard/table/cel/cel.component';
 import { CabecalhoModule } from './../componentes/cabecalho/cabecalho.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,6 +10,7 @@ import { CardsComponent } from './cards/cards.component';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImgVaiculoComponent } from './cards/img-vaiculo/img-vaiculo.component';
 import { GraficoComponent } from './cards/grafico/grafico.component';
+import { MensagemModule } from '../componentes/mensagem/mensagem.module';
 
 
 @NgModule({
@@ -17,14 +19,16 @@ import { GraficoComponent } from './cards/grafico/grafico.component';
     TableComponent,
     CardsComponent,
     ImgVaiculoComponent,
-    GraficoComponent
+    GraficoComponent,
+    CelComponent
   ],
   imports: [
     CommonModule,
     DashboardRoutingModule,
     CabecalhoModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MensagemModule,
   ]
 })
 export class DashboardModule { }

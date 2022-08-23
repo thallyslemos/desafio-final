@@ -15,18 +15,24 @@
         <tbody >
           <tr >
             <td>
-              <div *ngIf="veiculos.length != 0; else celulas">Insira o código VIN</div>
+              <div *ngIf="veiculos.length != 0; else celulas"></div>
               <ng-template #celulas>
               <span class="text text-danger">Código vin inválido</span>
-              </ng-template>
-              <input type="search" class="form-control"  placeholder="Código Vin" maxlength="20"
-              [formControl]="vehicleDataInput" [ngModel]="veiculos[0].vin">
+              </ng-template >
+              <!-- <input type="text" class="form-control" value="{{veiculos[0].vin}}"  placeholder="Código Vin" maxlength="20"> -->
+              <input type="search" class="form-control"  placeholder="Código Vin"
+              [formControl]="vehicleDataInput" [ngModel]="veiculos[0].vin" maxlength="20">
             </td>
-              <td>{{veiculos[0].odometer}} KM</td>
-              <td>{{veiculos[0].fuelLevel}} %</td>
+
+              <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].odometer"> KM</app-cel></td>
+              <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].fuelLevel"> %</app-cel></td>
+              <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].status"></app-cel></td>
+              <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].lat"></app-cel></td>
+              <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].long"></app-cel></td>
+              <!-- <td>{{veiculos[0].fuelLevel}} %</td>
               <td>{{veiculos[0].status}}</td>
               <td>{{veiculos[0].lat}}</td>
-              <td>{{veiculos[0].long}}</td>
+              <td>{{veiculos[0].long}}</td> -->
           </tr>
         </tbody>
         <tfoot class="table ESTILOAZUL" >

@@ -17,15 +17,11 @@ export class VeiculosService {
     return this.http.get<Veiculo>(`${API}/vehicle/${id}`)
   }
   getVeiculosArray() { // Busca o array de veiculos na API
-    return this.http.get<VeiculosAPI>(`${API}/vehicle`)
+    return this.http.get<VeiculosAPI>(`${API}/vehicle`).pipe(
+      tap((valor)=>console.log(valor)),
+      map((valor)=>valor.vehicles)
+    )
   }
-  // getVeiculos(valor?: string){ console.log('Mim chamôuuu?')
-  //   const params = valor ? new HttpParams().append('valor', valor) : undefined;
-  //   return this.http.get<VeiculosAPI>(`${API}/vehicle`, { params }).pipe(
-  //     tap((valor)=>console.log(valor)),
-  //     pluck('vehicle')
-  //   )
-  // } Método para acessar a api com observable
 
   getImage(id: number, img: string) { // Busca imagem por id
     if(id == 1) {
@@ -39,5 +35,4 @@ export class VeiculosService {
     }
     return img
   }
-
 }
