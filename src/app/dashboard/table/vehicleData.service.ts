@@ -1,7 +1,7 @@
-import { environment } from './../../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Table, TabelaAPI } from './table';
+import { vehicleData, vehicleDataAPI } from './vehicleData';
 import { map, tap } from 'rxjs';
 const API = environment.apiURL
 
@@ -9,7 +9,7 @@ const API = environment.apiURL
   providedIn: 'root'
 })
 // Table de vehicleData
-export class TableService {
+export class VehicleDataService {
 
   constructor(private http: HttpClient) { }
 
@@ -24,13 +24,13 @@ export class TableService {
   // }
   getVeiculos(valor?: string){
     const params = valor ? new HttpParams().append('valor', valor) : undefined;
-    return this.http.get<TabelaAPI>(`${API}/vehicleData`, { params }).pipe(
+    return this.http.get<vehicleDataAPI>(`${API}/vehicleData`, { params }).pipe(
       tap((valor)=>console.log(valor.vehicleData.length)),
       map((veiculos)=>
       veiculos.vehicleData.sort((veiculoA, veiculoB)=> this.ordenaPorCodigo(veiculoA, veiculoB)))
     )
   }
-  private ordenaPorCodigo(veiculoA: Table, veiculoB: Table) {
+  private ordenaPorCodigo(veiculoA: vehicleData, veiculoB: vehicleData) {
     if(veiculoA.id > veiculoB.id){
       return 1
     }

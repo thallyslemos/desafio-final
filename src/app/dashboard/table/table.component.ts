@@ -1,8 +1,8 @@
-import { debounceTime, distinctUntilChanged, filter, merge, Observable, switchMap, tap } from 'rxjs';
-import { TableService } from './table.service';
+import { debounceTime, distinctUntilChanged, filter, merge, Observable, switchMap, tap, map } from 'rxjs';
+import { VehicleDataService } from './vehicleData.service';
 import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
-import { Table, Tables } from './table';
+import { vehicleDataArray } from './vehicleData';
 import { FormControl } from '@angular/forms';
 
 
@@ -15,10 +15,10 @@ const API = environment.apiURL
 export class TableComponent implements OnInit {
   // input = ""
   dados!: any //dados de vehicle data que serão exibidos na tabela
-  vehicleDataArray!: Tables
+  vehicleDataArray!: vehicleDataArray
 
   vehicleDataInput = new FormControl();
-  veiculosArray$ = this.table.getVeiculos().pipe(
+  veiculosArray$ = this.vehicleData.getVeiculos().pipe(
     tap(()=>{console.log('Fluxo Inicial')})
   )
   filtroPorInput$ = this.vehicleDataInput.valueChanges.pipe(
@@ -27,21 +27,21 @@ export class TableComponent implements OnInit {
     tap(console.log),
     filter((valorDigitado)=> valorDigitado.length >= 19 || !valorDigitado.length),
     distinctUntilChanged(),
-    switchMap((valorDigitado)=> this.table.getVeiculos(valorDigitado)),
+    switchMap((valorDigitado)=> this.vehicleData.getVeiculos(valorDigitado)),
     tap(console.log)
   )
   veiculos$ = merge(this.filtroPorInput$, this.veiculosArray$)
 
-  constructor(private table: TableService) { }
+  constructor(private vehicleData: VehicleDataService) { }
 
   ngOnInit() {// a rimeira busca será feita ao carregar a página para a tabela n iniciar vazia
   // this.results$ = this.vehicleDataInput.valueChanges.pipe(tap(value => console.log(value)))
   this.retornaDados()
-  // this.table.getVehicleDataApi().subscribe((retornoApi)=>{this.vehicleDataArray = retornoApi.vehicledata })
+  // this.vehicleData.getVehicleDataApi().subscribe((retornoApi)=>{this.vehicleDataArray = retornoApi.vehicledata })
   }
 
   retornaDados() { //método será chamado ao carregar a página e ao mudar o campo de seleção da tabela
-    return this.table.getVeiculos().subscribe({next:(data)=>{this.dados = data},
+    return this.vehicleData.getVeiculos().subscribe({next:(data)=>{this.dados = data},
     error:(error)=>{console.log(error)}})
   }
   // onSearch() {
