@@ -11,7 +11,7 @@ import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImgVaiculoComponent } from './cards/img-vaiculo/img-vaiculo.component';
 import { GraficoComponent } from './cards/grafico/grafico.component';
 import { MensagemModule } from '../componentes/mensagem/mensagem.module';
-
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import { MensagemModule } from '../componentes/mensagem/mensagem.module';
     FormsModule,
     ReactiveFormsModule,
     MensagemModule,
+    NgChartsModule
   ]
 })
 export class DashboardModule { }

@@ -50,13 +50,18 @@
           </div>
         </div>
       </div>
-      <div class="row px-5" id="grafico-imagem">
+      <div class="row" id="grafico-imagem">
         <!-- Ajustar altura dessa div -->
         <div class="col-sm-6  align-self-center">
           <app-img-vaiculo [img]="imgVeiculo"></app-img-vaiculo>
         </div>
-        <div class="col-6 offset-3  col-sm-3 align-self-center">
-          <app-grafico [veiculo]="dadosVeiculo"></app-grafico>
+        <div class="col-6 col-md-3 px-3 align-self-center">
+          <app-grafico [dados]="[dadosVeiculo.volumetotal, dadosVeiculo.connected]"
+          [rotulos]="['Não Conectados','Conectados']"></app-grafico>
+        </div>
+        <div class="col-6 col-md-3 px-3 align-self-center">
+          <app-grafico [dados]="[dadosVeiculo.volumetotal, dadosVeiculo.softwareUpdates]"
+          [rotulos]="['Não Atualizados','Atualizados']"></app-grafico>
         </div>
       </div>
     </div>

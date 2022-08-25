@@ -1,3 +1,15 @@
-<div class="container p-1">
-  <canvas  #meuCanvas></canvas>
+<!-- receber o total de veiculos e o parcial psrs reutilizar esse component reber os rotulos do -->
+<!-- <div class="container p-1">
+  <canvas  #meuCanvas id="donut">
+  </canvas>
+</div> -->
+<div class="container pb-1">
+  <canvas baseChart
+  [labels]="doughnutChartLabels"
+  [datasets]="doughnutChartDatasets"
+  [options]="doughnutChartOptions"
+  [legend]="true"
+  [type]="'doughnut'"
+  >
+  </canvas>
 </div>
