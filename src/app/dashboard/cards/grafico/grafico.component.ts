@@ -1,7 +1,6 @@
-import { Component, ElementRef, Input, OnInit, SimpleChange, SimpleChanges, ViewChild } from '@angular/core';
-import { Chart, ChartConfiguration, registerables, } from 'chart.js'
+import { Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { ChartConfiguration } from 'chart.js'
 import ChartDataLabels from 'chartjs-plugin-datalabels';
-
 
 @Component({
   selector: 'app-grafico',
@@ -19,23 +18,12 @@ export class GraficoComponent implements OnInit {
   chartDatasets: ChartConfiguration<'doughnut'>['data']['datasets']= [
     { data: [], label: 'DashboardChart', }
   ];
-  centerText = { id: 'centerTextDoughnut', dados: '' , afterDatasetsDraw(chart: any, args: any, pluginOptions: any) {
-    let { ctx } = chart;
-      ctx.textAlign ='center';
-      ctx.textBaseLine = 'midle';
-      ctx.font = 'bold 24px sans-serif';
-      const text = `${this.dados}%`;
-      const textWidith = ctx.measureText(text).width;
-      const x = chart.getDatasetMeta(0).data[0].x;
-      const y = chart.getDatasetMeta(0).data[0].y;
 
-      ctx.fillText(text, x, y)
-    }}
-  chartPlugins = [ ChartDataLabels, this.centerText ];
+  chartPlugins = [ ChartDataLabels ];
 
   chartOptions: ChartConfiguration<'doughnut'>['options']= {
     responsive: true,
-    cutout: '80%',
+    cutout: '30%',
     plugins: {
       legend: {
         display: true,
@@ -75,14 +63,8 @@ export class GraficoComponent implements OnInit {
 
   ngOnInit(){
     this.chartLabels = this.rotulos;
-
-
   }
-  b!: any
-  porcentagem(valor1: any, valor2: any) {
-    let percentual = (valor1/(valor1 + valor2)*100).toFixed(1);
-    return percentual;
-  }
+
   ngOnChanges(changes: SimpleChanges){
     this.chartDatasets = [{
       data: [(this.dados[0] - this.dados[1]), this.dados[1]],
@@ -91,9 +73,5 @@ export class GraficoComponent implements OnInit {
       hoverBorderColor: ['#fff'],
       hoverOffset: 4,
     }];
-    let a = this.porcentagem(this.chartDatasets[0].data[1], this.chartDatasets[0].data[0])
-    //  (this.chartDatasets[0].data[1]/(this.chartDatasets[0].data[0]+this.chartDatasets[0].data[1])*100).toFixed(1);
-    console.log(this.chartDatasets[0].data, a);
-    this.centerText.dados = a
   }
 }
