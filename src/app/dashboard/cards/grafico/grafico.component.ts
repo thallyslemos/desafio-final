@@ -19,28 +19,23 @@ export class GraficoComponent implements OnInit {
   chartDatasets: ChartConfiguration<'doughnut'>['data']['datasets']= [
     { data: [], label: 'DashboardChart', }
   ];
-
-  centerText = { id: 'centerTextDoughnut', dados: [] , afterDatasetsDraw(chart: any, args: any, pluginOptions: any) {
+  centerText = { id: 'centerTextDoughnut', dados: '' , afterDatasetsDraw(chart: any, args: any, pluginOptions: any) {
     let { ctx } = chart;
-    ctx.restore()
-    ctx.textAlign ='center';
-    ctx.textBaseLine = 'midle';
-    ctx.font = 'bold 12px sans-serif'
-    const text = '%';
-    const textWidith = ctx.measureText(text).width;
-    const x = chart.getDatasetMeta(0).data[0].x;
-    const y = chart.getDatasetMeta(0).data[0].y;
+      ctx.textAlign ='center';
+      ctx.textBaseLine = 'midle';
+      ctx.font = 'bold 24px sans-serif';
+      const text = `${this.dados}%`;
+      const textWidith = ctx.measureText(text).width;
+      const x = chart.getDatasetMeta(0).data[0].x;
+      const y = chart.getDatasetMeta(0).data[0].y;
 
-    ctx.fillText(text, x, y)
-    ctx.save()
-  }}
-
+      ctx.fillText(text, x, y)
+    }}
   chartPlugins = [ ChartDataLabels, this.centerText ];
 
   chartOptions: ChartConfiguration<'doughnut'>['options']= {
     responsive: true,
-    cutout: '30%',
-    datasets: { },
+    cutout: '80%',
     plugins: {
       legend: {
         display: true,
@@ -53,17 +48,13 @@ export class GraficoComponent implements OnInit {
            total = this.dados[0]
           }
           let percent = (value/total)*100
-          console.log(percent)
-          console.log(ctx)
           return `${percent.toFixed(1)}%`
         },
         font:{
           weight: 'bold',
-          size: 14,
+          size: 12,
           family: 'sans-serif',
         },
-        anchor: 'center',
-        align: 'center',
         color: '#fff'
       },
       tooltip: {
@@ -83,16 +74,26 @@ export class GraficoComponent implements OnInit {
   };
 
   ngOnInit(){
-  }
+    this.chartLabels = this.rotulos;
 
+
+  }
+  b!: any
+  porcentagem(valor1: any, valor2: any) {
+    let percentual = (valor1/(valor1 + valor2)*100).toFixed(1);
+    return percentual;
+  }
   ngOnChanges(changes: SimpleChanges){
-    console.log(changes)
     this.chartDatasets = [{
       data: [(this.dados[0] - this.dados[1]), this.dados[1]],
       backgroundColor: ['#010c2a', '#1351d8'],
       hoverBackgroundColor:[ '#01025c', '#1300fa'],
       hoverBorderColor: ['#fff'],
       hoverOffset: 4,
-    }]
+    }];
+    let a = this.porcentagem(this.chartDatasets[0].data[1], this.chartDatasets[0].data[0])
+    //  (this.chartDatasets[0].data[1]/(this.chartDatasets[0].data[0]+this.chartDatasets[0].data[1])*100).toFixed(1);
+    console.log(this.chartDatasets[0].data, a);
+    this.centerText.dados = a
   }
 }

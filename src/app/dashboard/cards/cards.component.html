@@ -55,13 +55,13 @@
         <div class="col-sm-6 col-xsm-12  align-self-center">
           <app-img-vaiculo [img]="imgVeiculo"></app-img-vaiculo>
         </div>
-        <div class="col-6 col-md-3 px-3 align-self-center">
+        <div class="col-6 col-md-3 px-1 align-self-center">
           <app-grafico [dados]="[dadosVeiculo.volumetotal, dadosVeiculo.connected]"
-          [rotulos]="['Não Conectados','Conectados']"></app-grafico>
+          [rotulos]="['Descoonectados','Conectados']"></app-grafico>
         </div>
-        <div class="col-6 col-md-3 px-3 align-self-center">
+        <div class="col-6 col-md-3 px-1 align-self-center">
           <app-grafico [dados]="[dadosVeiculo.volumetotal, dadosVeiculo.softwareUpdates]"
-          [rotulos]="['Não Atualizados','Atualizados']"></app-grafico>
+          [rotulos]="['Desatualizados','Atualizados']"></app-grafico>
         </div>
       </div>
     </div>
