@@ -5,11 +5,12 @@
 </div> -->
 <div class="container pb-1">
   <canvas baseChart
-  [labels]="doughnutChartLabels"
-  [datasets]="doughnutChartDatasets"
-  [options]="doughnutChartOptions"
+  [labels]="chartLabels"
+  [datasets]="chartDatasets"
+  [options]="chartOptions"
   [legend]="true"
   [type]="'doughnut'"
+  [plugins]="chartPlugins"
   >
   </canvas>
 </div>
