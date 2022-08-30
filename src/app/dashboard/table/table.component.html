@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row" *ngIf="veiculos$ | async as veiculos">
     <div class="col col-12" >
-      <table class="table table-bordered shadow bg-body rounded">
+      <table class="table shadow bg-body rounded">
         <thead>
-          <tr class="table ESTILOAZUL" >
+          <tr class="table bg-azul text-light" >
             <th scope="col">Código - vin</th>
             <th scope="col">Odômetro</th>
             <th scope="col">Nível de combustível</th>
@@ -19,23 +19,17 @@
               <ng-template #celulas>
               <span class="text text-danger">Código vin inválido</span>
               </ng-template >
-              <!-- <input type="text" class="form-control" value="{{veiculos[0].vin}}"  placeholder="Código Vin" maxlength="20"> -->
               <input type="search" class="form-control"  placeholder="Código Vin"
               [formControl]="vehicleDataInput" maxlength="20">
             </td>
-
             <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].odometer + ' KM'"></app-cel></td>
             <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].fuelLevel + ' %'"> </app-cel></td>
             <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].status"></app-cel></td>
             <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].lat"></app-cel></td>
             <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].long"></app-cel></td>
-            <!-- <td>{{veiculos[0].fuelLevel}} %</td>
-            <td>{{veiculos[0].status}}</td>
-            <td>{{veiculos[0].lat}}</td>
-            <td>{{veiculos[0].long}}</td> -->
           </tr>
         </tbody>
-        <tfoot class="table ESTILOAZUL" >
+        <tfoot class="table bg-azul text-light" >
           <tr>
             <td colspan="6"></td>
           </tr>

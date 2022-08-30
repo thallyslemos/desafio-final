@@ -2,56 +2,23 @@
   <div *ngIf="veiculosArray$ | async as veiculosArray">
     <div *ngIf="dadosVeiculo" >
       <div class="row align-itens-center ">
-        <div class="col-6 col-md-3 p-3">
-          <div class="card  h-100">
-            <div class="card-header ESTILOAZUL">
-              Veículo
-            </div>
-          <!-- Card de pesquisa com select -->
-            <div class="card-body shadow-sm bg-body rounded" >
-              <select class="form-select" [(ngModel)]="id" (ngModelChange)="retornaVeiculo()" >
-                <option *ngFor="let veiculo of veiculosArray" [ngValue]="veiculo.id">{{veiculo.vehicle}}</option>
-              </select>
-            </div>
-          </div>
-        </div>
-      <!-- Cards com resposta. Devo colocar em um módulo separado? -->
-        <div class="col-6 col-md-3 p-3">
-          <div class="card h-100 shadow-sm bg-body rounded">
-            <div class="card-header ESTILOAZUL">
-              Total de Vendas
-            </div>
-            <div class="card-body">
-              <h5 class="card-title text-primary" > {{dadosVeiculo.volumetotal}}</h5>
-              <p class="card-text">Unid.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-md-3 p-3">
-          <div class="card h-100 shadow-sm bg-body rounded">
-            <div class="card-header ESTILOAZUL">
-              Conectados
-            </div>
-            <div class="card-body">
-              <h5 class="card-title text-primary">{{dadosVeiculo.connected}}</h5>
-              <p class="card-text">Unid.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 col-md-3 p-3">
-          <div class="card h-100 shadow-sm bg-body rounded">
-            <div class="card-header ESTILOAZUL">
-              Update Software
-            </div>
-            <div class="card-body ">
-              <h5 class="card-title text-primary">{{dadosVeiculo.softwareUpdates}}</h5>
-              <p class="card-text">Unid.</p>
-            </div>
-          </div>
-        </div>
+      <div class="col-6 col-md-3 p-3">
+        <app-card [titulo]="'Veículos'">
+          <select class="form-select" [(ngModel)]="id" (ngModelChange)="retornaVeiculo()" >
+            <option *ngFor="let veiculo of veiculosArray" [ngValue]="veiculo.id">{{veiculo.vehicle}}</option>
+          </select>
+        </app-card>
+      </div>
+      <div class="col-6 col-md-3 p-3">
+        <app-card [titulo]="'Total de Vendas'" [texto]="'Unid.'" [conteudo]="dadosVeiculo.volumetotal"></app-card>
+      </div>
+      <div class="col-6 col-md-3 p-3">
+        <app-card [titulo]="'Conectados'" [texto]="'Unid.'" [conteudo]="dadosVeiculo.connected"></app-card>
+      </div>
+      <div class="col-6 col-md-3 p-3">
+        <app-card [titulo]="'Update Software'" [texto]="'Unid.'" [conteudo]="dadosVeiculo.softwareUpdates"></app-card>
       </div>
       <div class="row" id="grafico-imagem">
-        <!-- Ajustar altura dessa div -->
         <div class="col-sm-6 col-xsm-12  align-self-center">
           <app-img-vaiculo [img]="imgVeiculo"></app-img-vaiculo>
         </div>

@@ -1,5 +1,6 @@
-.ESTILOAZUL{
-  background-color:  #1B357E;
+.bg-azul {
+  background-color: #1B357E;
+}
+.text-azul {
   color: #1B357E;
-
 }

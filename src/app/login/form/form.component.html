@@ -3,7 +3,7 @@
     <form class="form mt-4" (ngSubmit)="login()" #loginForm="ngForm">
       <div class="text-center">
       <img class="mb-2" src="assets/img/ford.png" alt="Logo Ford" width="100" >
-      <h2 class="text FONTEAZUL m-3 fw-bolder">Bem Vindo</h2>
+      <h2 class="text text-azul m-3 fw-bolder">Bem Vindo</h2>
     </div>
     <div class="form-floating mb-2">
       <input class="form-control" id="floatingInput" placeholder="Nome do usuário"
@@ -15,11 +15,7 @@
       [(ngModel)]="senha" name="senha" required=""/>
       <label for="floatingPassword">Senha</label>
     </div>
-    <!-- Implementar funcionalidde a esse botão -->
-    <div class="checkbox mb-2">
-      <label><input type="checkbox" value="conectarAutomático">Conectar Automático</label>
-    </div>
-    <div class="text-center">
+    <div class="text-center mt-4">
       <button type="submit" class="btn btn-primary w-50" >Login</button>
     </div>
   </form>

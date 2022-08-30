@@ -3,12 +3,14 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CabecalhoComponent } from './cabecalho.component';
+import { DropdownComponent } from './dropdown/dropdown.component';
 
 
 
 @NgModule({
   declarations: [
-    CabecalhoComponent
+    CabecalhoComponent,
+    DropdownComponent
   ],
   imports: [
     CommonModule, RouterModule, MenuModule

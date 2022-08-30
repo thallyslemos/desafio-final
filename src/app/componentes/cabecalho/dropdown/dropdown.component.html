@@ -1,0 +1,6 @@
+<div [ngClass]='{"active-menu": mostraMenu}'>
+  <div class="menu-bar">
+    <ng-content></ng-content>
+  </div>
+  <div class="overlay" (click)="abreMenu()"></div>
+</div>

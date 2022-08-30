@@ -12,6 +12,7 @@ import { ImgVaiculoComponent } from './cards/img-vaiculo/img-vaiculo.component';
 import { GraficoComponent } from './cards/grafico/grafico.component';
 import { MensagemModule } from '../componentes/mensagem/mensagem.module';
 import { NgChartsModule } from 'ng2-charts';
+import { CardComponent } from './cards/card/card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NgChartsModule } from 'ng2-charts';
     CardsComponent,
     ImgVaiculoComponent,
     GraficoComponent,
-    CelComponent
+    CelComponent,
+    CardComponent
   ],
   imports: [
     CommonModule,
