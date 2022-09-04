@@ -20,7 +20,7 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "./src/assets",
-              "./assets/img/favicon.png"
+              "./src/assets/img/favicon.png"
             ],
             "styles": [
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
@@ -88,7 +88,7 @@
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
             "assets": [
-              "src/favicon.png",
+              "./src/assets/img/favicon.png",
               "src/assets"
             ],
             "styles": [

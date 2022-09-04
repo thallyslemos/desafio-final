@@ -1,16 +1,15 @@
 <div class="container">
   <div
     class="position-relative justify-content-center align-items-center bgRanger">
-      <div class="p-5 position-absolute start-50 top-50
-      9  translate-middle w-75 h-100" >
-        <div class="card opacity-75 text-azul">
+      <div class="position-absolute start-50 top-50 py-5 translate-middle h-100" >
+        <div class="card text-azul" id="cardBoasVindas">
           <div class="card-header">
               <h5 class="card-title m-0">
                 Sistema de Dados Ford
               </h5>
             </div>
-          <div class="card-body"*ngIf="user$ |async as user">
-              <p class="card-text mb-8 pb-5">Seja bem vindo(a) {{user}}!</p>
+          <div class="card-body"*ngIf="user$ |async as user" >
+              <p class="card-text">Seja bem vindo(a) {{user}}!</p>
           </div>
         </div>
     </div>

@@ -5,3 +5,11 @@
   margin-top: 20vh;
   min-height: 70vh;
 }
+#cardBoasVindas {
+  height: 30vh;
+  max-height: 200px;
+  min-height: 100px;
+  width: 30vw;
+  min-width: 248px;
+  opacity: 80%;
+}

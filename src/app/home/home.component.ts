@@ -1,7 +1,6 @@
 import { UsuarioService } from './../autenticacao/usuario/usuario.service';
 import { Component, OnInit } from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
-import { Usuario } from '../autenticacao/usuario/usuario';
+import { map, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,7 @@ import { Usuario } from '../autenticacao/usuario/usuario';
 })
 export class HomeComponent implements OnInit {
 
-  protected user$: Observable<string | undefined> = this.usuarioService.retornaUsuario().pipe(
+  user$: Observable<string | undefined> = this.usuarioService.retornaUsuario().pipe(
     map((user)=> { return user.name})
   );
 
