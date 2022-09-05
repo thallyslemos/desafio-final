@@ -25,10 +25,6 @@ export class GraficoComponent implements OnInit {
     responsive: true,
     cutout: '30%',
     plugins: {
-      legend: {
-        display: true,
-        position: 'top',
-      },
       datalabels: {
         formatter: (value, ctx) => {
           let total = 0
@@ -56,6 +52,7 @@ export class GraficoComponent implements OnInit {
           labelTextColor: ()=> {
             return '#010c2a'
           },
+
         }
       },
     }
