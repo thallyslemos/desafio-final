@@ -3,7 +3,7 @@
     <div class="col col-12" >
       <table class="table shadow bg-body rounded">
         <thead>
-          <tr class="table bg-azul text-light" >
+          <tr class="table bg-azul text-light">
             <th scope="col">Código - vin</th>
             <th scope="col">Odômetro</th>
             <th scope="col">Nível de combustível</th>
@@ -12,11 +12,11 @@
             <th scope="col">Long.</th>
           </tr>
         </thead>
-        <tbody >
-          <tr >
+        <tbody>
+          <tr>
             <td>
-              <div *ngIf="veiculos.length != 0; else celulas"></div>
-              <ng-template #celulas>
+              <div *ngIf="veiculos.length != 0; else mensagem"></div>
+              <ng-template #mensagem>
               <span class="text text-danger">Código vin inválido</span>
               </ng-template >
               <input type="search" class="form-control"  placeholder="Código Vin"
