@@ -1,4 +1,4 @@
-import { debounceTime, distinctUntilChanged, filter, merge, switchMap, tap, map } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, merge, switchMap, tap } from 'rxjs';
 import { VehicleDataService } from './vehicleData.service';
 import { environment } from './../../../environments/environment';
 import { Component, } from '@angular/core';

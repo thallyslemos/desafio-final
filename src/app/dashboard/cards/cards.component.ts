@@ -11,7 +11,7 @@ import { VeiculosService } from './veiculos.service';
 export class CardsComponent implements OnInit {
   id: number = 1 // Recebe o id do veículo no template após a mudança no input Select
   dadosVeiculo!:Veiculo  // Recebe um resultado da requisição ao backend que será um veiculo definido pelo ID
-  veiculosArray$ = this.veiculosService.getVeiculosArray().pipe(tap(()=>(console.log('teste')))) // Recebe um observable de array de veiculos
+  veiculosArray$ = this.veiculosService.getVeiculosArray() // Recebe um observable de array de veiculos
   imgVeiculo!: string // Recebe o caminho da imagem do veículo selecionado
   constructor(private veiculosService: VeiculosService) {
   }
