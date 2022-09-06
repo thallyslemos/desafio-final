@@ -6,10 +6,10 @@
   min-height: 70vh;
 }
 #cardBoasVindas {
-  height: 30vh;
+  height: 40vw;
   max-height: 200px;
   min-height: 100px;
-  width: 30vw;
+  width: 40vw;
   min-width: 248px;
   opacity: 80%;
 }

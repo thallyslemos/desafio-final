@@ -1,5 +1,5 @@
-<div *ngIf="veiculos.length == 1; else carrega">{{dado}}</div>
-<ng-template #carrega>
+<div *ngIf="veiculos.length == 1; else carregando">{{dado}}</div>
+<ng-template #carregando>
   <div class="row justify-content-center" [hidden]="veiculos.length >= 5">
     <div class="spinner-border align-self-center text-primary" role="status">
       <span class="sr-only"></span>

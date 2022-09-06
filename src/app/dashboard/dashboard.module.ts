@@ -10,7 +10,6 @@ import { CardsComponent } from './cards/cards.component';
 import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ImgVaiculoComponent } from './cards/img-vaiculo/img-vaiculo.component';
 import { GraficoComponent } from './cards/grafico/grafico.component';
-import { MensagemModule } from '../componentes/mensagem/mensagem.module';
 import { NgChartsModule } from 'ng2-charts';
 import { CardComponent } from './cards/card/card.component';
 
@@ -30,7 +29,6 @@ import { CardComponent } from './cards/card/card.component';
     CabecalhoModule,
     FormsModule,
     ReactiveFormsModule,
-    MensagemModule,
     NgChartsModule
   ]
 })
