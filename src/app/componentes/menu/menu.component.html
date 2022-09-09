@@ -1,11 +1,13 @@
 <div [ngClass]='{"active-menu": mostraMenu}'>
   <div class="menu-bar">
-    <i (click)="abreMenu()" (keyup.space)="abreMenu()">
+    <i (click)="abreMenu()">
       <a class="navbar-brand btn-outline-secondary p-2">
         <img src="assets\img\ford.png" width="80">
       </a>
     </i>
-    <ng-content></ng-content>
+    <div (click)="abreMenu()">
+      <ng-content></ng-content>
+    </div>
   </div>
   <div class="overlay" (click)="abreMenu()"></div>
 </div>
