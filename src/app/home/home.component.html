@@ -2,14 +2,16 @@
   <div
     class="position-relative justify-content-center align-items-center bgRanger">
       <div class="position-absolute start-50 top-50 py-5 translate-middle h-100" >
-        <div class="card text-azul" id="cardBoasVindas">
+        <div class="card TEXT-BLUE_1" id="cardBoasVindas">
           <div class="card-header">
               <h5 class="card-title m-0">
                 Sistema de Dados Ford
               </h5>
             </div>
           <div class="card-body"*ngIf="user$ |async as user" >
-              <p class="card-text">Seja bem vindo(a) {{user}}!</p>
+              <h6 class="card-text">
+                Seja bem vindo(a) {{user}}!
+              </h6>
           </div>
         </div>
     </div>

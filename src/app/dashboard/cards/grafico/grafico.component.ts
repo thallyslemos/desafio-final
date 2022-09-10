@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import { ChartConfiguration } from 'chart.js'
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
@@ -12,8 +12,6 @@ export class GraficoComponent implements OnInit {
   @Input() dados!:any
   @Input() rotulos!:any
 
-  @ViewChild( 'meuCanvas', { static: true}) elemnento!: ElementRef
-
   chartLabels: string[]= [];
   chartDatasets: ChartConfiguration<'doughnut'>['data']['datasets']= [
     { data: [], label: 'DashboardChart', }
@@ -26,6 +24,7 @@ export class GraficoComponent implements OnInit {
     cutout: '30%',
     plugins: {
       datalabels: {
+
         formatter: (value, ctx) => {
           let total = 0
           for(var i = 0; i < this.dados.length; i++) {
@@ -37,9 +36,10 @@ export class GraficoComponent implements OnInit {
         font:{
           weight: 'bold',
           size: 12,
-          family: 'sans-serif',
+          family: 'sans-serif'
         },
-        color: '#fff'
+        color: '#fff',
+
       },
       tooltip: {
         backgroundColor: '#fff',
@@ -53,6 +53,7 @@ export class GraficoComponent implements OnInit {
             return '#010c2a'
           },
 
+
         }
       },
     }
@@ -65,8 +66,8 @@ export class GraficoComponent implements OnInit {
   ngOnChanges(changes: SimpleChanges){
     this.chartDatasets = [{
       data: [(this.dados[0] - this.dados[1]), this.dados[1]],
-      backgroundColor: ['#010c2a', '#1351d8'],
-      hoverBackgroundColor:[ '#01025c', '#1300fa'],
+      backgroundColor: ['#142240','#3F6ECC'],
+      hoverBackgroundColor:['#020F59', '#0526E6'],
       hoverBorderColor: ['#fff'],
       hoverOffset: 4,
     }];

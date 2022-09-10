@@ -1,8 +1,8 @@
 <header class="sticky-top">
   <div class="text-white" *ngIf="user$ | async as user">
     <div *ngIf="(user.name); else userLoggedOut">
-      <nav class="navbar bg-azul" >
-        <button class="btn text-white" (click)="menu.abreMenu()" (keyup.space)="menu.abreMenu()">
+      <nav class="navbar BG-BLUE_3" >
+        <button class="btn text-white" (click)="menu.openMenu()" (keyup.space)="menu.openMenu()">
         <i class="fa fa-bars mx-2"></i>
       </button>
         <app-menu #menu>
@@ -16,7 +16,7 @@
           </ul>
         </app-menu>
         <div class="mx-2">
-          <button class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" (click)="dropdown.abreMenu()" (keyup.space)="dropdown.abreMenu()">
+          <button class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" (click)="dropdown.openMenu()" (keyup.Space)="dropdown.openMenu()">
             <i class="fa fa-user-circle "></i>
           </button>
           <app-dropdown #dropdown>
@@ -38,7 +38,7 @@
       </nav>
     </div>
     <ng-template #userLoggedOut>
-      <nav class="navbar bg-azul p-2" id="cabeçalhoLogOut">
+      <nav class="navbar BG-BLUE_3 p-2" id="cabeçalhoLogOut">
         <span class="fw-bold m-x2">Sistema de Dados Ford</span>
         <div class="mx-2">
           <span class="mx-1">Login</span>

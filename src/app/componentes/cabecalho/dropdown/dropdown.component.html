@@ -1,6 +1,6 @@
-<div [ngClass]='{"active-menu": mostraMenu}'>
+<div [ngClass]='{"active-menu": showMenu}'>
   <div class="menu-bar">
     <ng-content></ng-content>
   </div>
-  <div class="overlay" (click)="abreMenu()"></div>
+  <div class="overlay" (click)="openMenu()"></div>
 </div>

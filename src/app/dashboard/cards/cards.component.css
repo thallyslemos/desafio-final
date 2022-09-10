@@ -1,7 +1,3 @@
-.card-header-azul {
-  background-color:  #1B357E;
-  color: #ffffff;
-  border-color: #1B357E;
-  font-weight: bold;
+#imgVeiculo {
+  min-height: 130px;
 }
-

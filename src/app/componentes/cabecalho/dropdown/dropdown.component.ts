@@ -7,15 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DropdownComponent implements OnInit {
 
-  mostraMenu = false;
+  showMenu = false;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  abreMenu(){
-    this.mostraMenu = !this.mostraMenu;
+  openMenu(){
+    this.showMenu = !this.showMenu;
   }
 
 }
