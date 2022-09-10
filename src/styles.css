@@ -1,11 +1,15 @@
+/* 7EA1C4
+2E4959
+111C38
+ */
 .BG-BLUE_1{
   background-color: #0D05F2;
 }
 .BG-BLUE_2{
-  background-color: #020F59;
+  background-color:  #111C38;
 }
 .BG-BLUE_3 {
-  background-color: #111C38;
+  background-color: #020F59;
 }
 .BG-BLUE_4 {
   background-color: #2E4959;
@@ -14,7 +18,7 @@
   color: #00005A;
 }
 .TEXT-BLUE_2 {
-  color: #0D05F2;
+  color: #027fe9;
 }
 .BORDER-BLUE_1{
   color: #00005A;
@@ -24,7 +28,7 @@
 }
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #111C38;
+  --bs-btn-bg: #020F59;
   --bs-btn-border-color: #111C38;
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #0D05F2;
