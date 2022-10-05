@@ -1,0 +1,18 @@
+.table {
+  border-radius: 0.2rem;
+  width: 100%;
+  padding-bottom: 1rem;
+  color: #212529;
+  margin-bottom: 0;
+}
+.table th:first-child{
+  position: sticky;
+  min-width: 200px;
+  left: 0;
+  background-color: #111C38;
+}
+
+.table td:first-child {
+  position: sticky;
+  left: 0;
+}

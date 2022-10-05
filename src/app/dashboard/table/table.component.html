@@ -1,40 +1,43 @@
 <div class="container">
   <div class="row" *ngIf="veiculos$ | async as veiculos">
-    <div class="col col-12" >
-      <table class="table shadow bg-body rounded">
-        <thead>
-          <tr class="table BG-BLUE_2 text-light">
-            <th scope="col">Código - Vin</th>
-            <th scope="col">Odômetro</th>
-            <th scope="col">Nível de combustível</th>
-            <th scope="col">Status</th>
-            <th scope="col">Lat.</th>
-            <th scope="col">Long.</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div *ngIf="veiculos.length != 0; else mensagem"></div>
-              <ng-template #mensagem>
-              <span class="text text-danger">Código - Vin inválido</span>
-              </ng-template >
-              <input type="search" class="form-control"  placeholder="Código Vin"
-              [formControl]="vehicleDataInput" maxlength="20">
-            </td>
-            <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].odometer + ' KM'"></app-cel></td>
-            <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].fuelLevel + ' %'"> </app-cel></td>
-            <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].status"></app-cel></td>
-            <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].lat"></app-cel></td>
-            <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].long"></app-cel></td>
-          </tr>
-        </tbody>
-        <tfoot class="table BG-BLUE_2 text-light" >
-          <tr>
-            <td colspan="6"></td>
-          </tr>
-        </tfoot>
-      </table>
+    <div class="col-12" >
+      <div class="table-responsive">
+
+        <table class="table table-hover shadow bg-body rounded">
+          <thead>
+            <tr class="table BG-BLUE_2 text-light">
+              <th scope="col">Código - Vin</th>
+              <th scope="col">Odômetro</th>
+              <th scope="col">Nível de combustível</th>
+              <th scope="col">Status</th>
+              <th scope="col">Lat.</th>
+              <th scope="col">Long.</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div *ngIf="veiculos.length != 0; else mensagem"></div>
+                <ng-template #mensagem>
+                <span class="text text-danger">Código - Vin inválido</span>
+                </ng-template >
+                <input type="search" class="form-control"  placeholder="Código Vin"
+                [formControl]="vehicleDataInput" maxlength="20">
+              </td>
+              <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].odometer + ' KM'"></app-cel></td>
+              <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].fuelLevel + ' %'"> </app-cel></td>
+              <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].status"></app-cel></td>
+              <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].lat"></app-cel></td>
+              <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].long"></app-cel></td>
+            </tr>
+          </tbody>
+          <tfoot class="table BG-BLUE_2 text-light" >
+            <tr>
+              <td colspan="6"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
     </div>
   </div>
 </div>
