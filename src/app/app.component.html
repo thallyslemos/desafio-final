@@ -1,2 +1,17 @@
 <app-cabecalho></app-cabecalho>
-<router-outlet></router-outlet>
+<div class="loading-container">
+  <div class="loading">
+     <ngx-loading
+     [show]="loading"
+     [config]="{
+       animationType: ngxLoadingAnimationTypes.chasingDots,
+       primaryColour: primaryColour,
+       secondaryColour: secondaryColour,
+       backdropBorderRadius: '3px'
+     }"
+     [template]="loadingTemplate"
+    ></ngx-loading>
+  </div>
+</div>
+<div *ngIf="loading" class="page-loading"></div>
+<router-outlet *ngIf="!loading"></router-outlet>

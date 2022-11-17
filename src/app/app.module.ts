@@ -1,3 +1,4 @@
+import { NgxLoadingModule, ngxLoadingAnimationTypes } from 'ngx-loading';
 import { CabecalhoModule } from './componentes/cabecalho/cabecalho.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
@@ -14,7 +15,13 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CabecalhoModule
+    CabecalhoModule,
+    NgxLoadingModule.forRoot({
+      animationType: ngxLoadingAnimationTypes.wanderingCubes,
+      backdropBackgroundColour: 'rgba(0,0,0,0.5)',
+      backdropBorderRadius: '4px',
+      fullScreenBackdrop: false,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
