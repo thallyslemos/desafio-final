@@ -5,3 +5,7 @@ a {
 #cabeçalhoLogOut {
   height: 54px;
 }
+.active-link {
+  border-left: 5px outset blue;
+  background-color: aliceblue;
+}
