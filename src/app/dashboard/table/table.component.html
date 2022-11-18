@@ -1,8 +1,7 @@
 <div class="container">
   <div class="row" *ngIf="veiculos$ | async as veiculos">
-    <div class="col-12" >
+    <div class="col-12">
       <div class="table-responsive">
-
         <table class="table table-hover shadow bg-body rounded">
           <thead>
             <tr class="table BG-BLUE_2 text-light">
@@ -15,26 +14,61 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr [ngSwitch]="veiculos.length">
               <td>
-                <div *ngIf="veiculos.length != 0; else mensagem"></div>
-                <ng-template #mensagem>
-                <span class="text text-danger">Código - Vin inválido</span>
-                </ng-template >
-                <input type="search" class="form-control"  placeholder="Código Vin"
-                [formControl]="vehicleDataInput" maxlength="20" list="codes">
+                <input
+                  type="search"
+                  class="form-control"
+                  placeholder="Código Vin"
+                  [formControl]="vehicleDataInput"
+                  maxlength="20"
+                  list="codes"
+                />
                 <datalist id="codes">
-                  <option *ngFor="let veiculo of veiculos">{{veiculo.vin}}</option>
+                  <option *ngFor="let veiculo of veiculos">
+                    {{ veiculo.vin }}
+                  </option>
                 </datalist>
               </td>
-              <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].odometer + ' KM'"></app-cel></td>
-              <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].fuelLevel + ' %'"> </app-cel></td>
-              <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].status"></app-cel></td>
-              <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].lat"></app-cel></td>
-              <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].long"></app-cel></td>
+              <td colspan="6" *ngSwitchDefault>
+                <app-cel
+                [veiculos]="veiculos"
+                ></app-cel>
+              </td>
+              <td *ngSwitchCase="1">
+                <app-cel
+                  [veiculos]="veiculos"
+                  [dado]="veiculos[0].odometer + ' KM'"
+                ></app-cel>
+              </td>
+              <td *ngSwitchCase="1">
+                <app-cel
+                  [veiculos]="veiculos"
+                  [dado]="veiculos[0].fuelLevel + ' %'"
+                >
+                </app-cel>
+              </td>
+              <td *ngSwitchCase="1">
+                <app-cel
+                  [veiculos]="veiculos"
+                  [dado]="veiculos[0].status"
+                ></app-cel>
+              </td>
+              <td *ngSwitchCase="1">
+                <app-cel
+                  [veiculos]="veiculos"
+                  [dado]="veiculos[0].lat"
+                ></app-cel>
+              </td>
+              <td *ngSwitchCase="1">
+                <app-cel
+                  [veiculos]="veiculos"
+                  [dado]="veiculos[0].long"
+                ></app-cel>
+              </td>
             </tr>
           </tbody>
-          <tfoot class="table BG-BLUE_2 text-light" >
+          <tfoot class="table BG-BLUE_2 text-light">
             <tr>
               <td colspan="6"></td>
             </tr>

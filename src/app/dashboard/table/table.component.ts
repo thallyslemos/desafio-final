@@ -19,7 +19,7 @@ export class TableComponent {
   filtroPorInput$ = this.vehicleDataInput.valueChanges.pipe(
     debounceTime(300),
     tap(console.log),
-    filter((valorDigitado)=> valorDigitado.length >= 17 || !valorDigitado.length),
+    filter((valorDigitado)=> valorDigitado.length >= 3 || !valorDigitado.length),
     distinctUntilChanged(),
     switchMap((valorDigitado)=> this.vehicleData.getVeiculos(valorDigitado)),
     tap(console.log)

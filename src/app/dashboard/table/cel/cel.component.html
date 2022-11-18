@@ -1,8 +1,15 @@
-<div class="TEXT-BLUE_1" *ngIf="veiculos.length == 1; else carregando">{{dado}}</div>
-<ng-template #carregando>
-  <div class="row justify-content-center" [hidden]="veiculos.length >= 5">
-    <div class="spinner-border align-self-center text-primary" role="status">
-      <span class="sr-only"></span>
-    </div>
+<div [ngSwitch]="veiculos.length" >
+  <div class="row justify-content-center" *ngSwitchCase="1">
+    {{dado}}
   </div>
-</ng-template>
+  <div class="row justify-content-center" *ngSwitchCase="0">
+    <span class="text-danger align-self-center">Código - Vin inválido</span>
+  </div>
+  <div class="row justify-content-center" *ngSwitchDefault>
+    <div *ngIf="veiculos.length > 1 && veiculos.length < 6"
+    class="spinner-border align-self-center text-primary"
+    role="status"
+    >
+    <span class="sr-only"></span>
+  </div>
+</div>
