@@ -22,7 +22,10 @@
                 <span class="text text-danger">Código - Vin inválido</span>
                 </ng-template >
                 <input type="search" class="form-control"  placeholder="Código Vin"
-                [formControl]="vehicleDataInput" maxlength="20">
+                [formControl]="vehicleDataInput" maxlength="20" list="codes">
+                <datalist id="codes">
+                  <option *ngFor="let veiculo of veiculos">{{veiculo.vin}}</option>
+                </datalist>
               </td>
               <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].odometer + ' KM'"></app-cel></td>
               <td><app-cel [veiculos]="veiculos" [dado]="veiculos[0].fuelLevel + ' %'"> </app-cel></td>
