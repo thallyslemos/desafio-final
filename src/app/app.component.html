@@ -1,4 +1,8 @@
 <app-cabecalho></app-cabecalho>
+<div *ngIf="loading" class="page-loading"></div>
+<div [@routeAnimations]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</div>
 <div class="loading-container">
   <div class="loading">
      <ngx-loading
@@ -13,5 +17,3 @@
     ></ngx-loading>
   </div>
 </div>
-<div *ngIf="loading" class="page-loading"></div>
-<router-outlet *ngIf="!loading"></router-outlet>

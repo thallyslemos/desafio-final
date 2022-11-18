@@ -31,9 +31,10 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Event, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
+import { Event, NavigationEnd, NavigationError, NavigationStart, Router, RouterOutlet } from '@angular/router';
 import { ngxLoadingAnimationTypes } from 'ngx-loading';
 import { NgxLoadingComponent } from 'ngx-loading';
+import { slideInAnimation } from './route-animations';
 
 const PrimaryBlue = '#0D05F2';
 const SecondaryBlue = '#1df2dd';
@@ -42,6 +43,7 @@ const SecondaryBlue = '#1df2dd';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  animations: [ slideInAnimation]
 })
 export class AppComponent {
   @ViewChild('ngxLoading', { static: false })
@@ -64,6 +66,11 @@ export class AppComponent {
     tertiaryColour: this.primaryColour,
     backdropBorderRadius: '3px',
   };
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet?.activatedRouteData?.['animation'];
+  }
+
 
   constructor(
     private router: Router

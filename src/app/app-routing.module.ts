@@ -9,10 +9,10 @@ const routes: Routes = [
   {path: 'login', loadChildren: ()=> import('./login/login.module').then(m => m.LoginModule),
   canLoad: [LoginGuard]},
   {path: 'home', loadChildren: ()=> import('./home/home.module').then(m => m.HomeModule),
-  canLoad: [AutenticacaoGuard]
+  canLoad: [AutenticacaoGuard],  data: {animation: 'HomePage'}
   },
   {path: 'dashboard', loadChildren: ()=> import('./dashboard/dashboard.module').then(m =>m.DashboardModule),
-  canLoad: [DashboardGuard]}
+  canLoad: [DashboardGuard], data: {animation: 'DashboardPage'}}
 ];
 
 @NgModule({
