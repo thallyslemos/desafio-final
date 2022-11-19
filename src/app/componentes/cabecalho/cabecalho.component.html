@@ -1,7 +1,7 @@
 <header class="sticky-top">
   <div class="text-white" *ngIf="user$ | async as user">
     <div *ngIf="(user.name); else userLoggedOut">
-      <nav class="navbar BG-BLUE_3" >
+      <nav class="navbar BG-BLUE_3 px-1" >
         <button class="btn text-white" (click)="menu.openMenu()" (keyup.space)="menu.openMenu()">
         <i class="fa fa-bars mx-2"></i>
       </button>

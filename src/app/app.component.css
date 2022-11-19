@@ -14,7 +14,7 @@ div .page-loading {
  }
  @keyframes progress-animation{
   0% {width: 0;}
-  10% {width: 30%;}
-  15% {width: 60%;}
+  10% {width: 90%;}
+  15% {width: 95%;}
   70% {width: 100%;}
  }

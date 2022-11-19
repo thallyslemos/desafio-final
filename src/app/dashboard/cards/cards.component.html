@@ -1,46 +1,69 @@
 <div class="container">
   <div *ngIf="veiculosArray$ | async as veiculosArray">
-    <div *ngIf="dadosVeiculo" >
+    <div *ngIf="dadosVeiculo">
       <div class="row justify-content-center mb-2">
-      <div class="col-6 col-md-3 p-2">
-        <app-card [titulo]="'Veículos'">
-          <select class="form-select TEXT-BLUE_1" [(ngModel)]="id" (ngModelChange)="retornaVeiculo()" >
-            <option *ngFor="let veiculo of veiculosArray" [ngValue]="veiculo.id">{{veiculo.vehicle}}</option>
-          </select>
-        </app-card>
+        <div class="col-6 col-md-3 p-2">
+          <app-card [titulo]="'Veículos'">
+            <select
+              class="form-select TEXT-BLUE_1"
+              [(ngModel)]="id"
+              (ngModelChange)="retornaVeiculo()"
+            >
+              <option
+                *ngFor="let veiculo of veiculosArray"
+                [ngValue]="veiculo.id"
+              >
+                {{ veiculo.vehicle }}
+              </option>
+            </select>
+          </app-card>
+        </div>
+        <div class="col-6 col-md-3 p-2">
+          <app-card
+            [titulo]="'Total de Vendas'"
+            [texto]="'Unid.'"
+            [conteudo]="dadosVeiculo.volumetotal"
+          ></app-card>
+        </div>
+        <div class="col-6 col-md-3 p-2">
+          <app-card
+            [titulo]="'Conectados'"
+            [texto]="'Unid.'"
+            [conteudo]="dadosVeiculo.connected"
+          ></app-card>
+        </div>
+        <div class="col-6 col-md-3 p-2">
+          <app-card
+            [titulo]="'Update Software'"
+            [texto]="'Unid.'"
+            [conteudo]="dadosVeiculo.softwareUpdates"
+          ></app-card>
+        </div>
       </div>
-      <div class="col-6 col-md-3 p-2">
-        <app-card [titulo]="'Total de Vendas'" [texto]="'Unid.'" [conteudo]="dadosVeiculo.volumetotal"></app-card>
-      </div>
-      <div class="col-6 col-md-3 p-2">
-        <app-card [titulo]="'Conectados'" [texto]="'Unid.'" [conteudo]="dadosVeiculo.connected"></app-card>
-      </div>
-      <div class="col-6 col-md-3 p-2">
-        <app-card [titulo]="'Update Software'" [texto]="'Unid.'" [conteudo]="dadosVeiculo.softwareUpdates"></app-card>
-      </div>
-    </div>
-    <div class="row justify-content-center ">
-      <div class="col-12 col-md-6  align-self-center">
-        <app-img-vaiculo [img]="imgVeiculo"></app-img-vaiculo>
-      </div>
-      <div class="col-6 col-md-3 p-1 align-self-center">
-        <app-grafico [dados]="[dadosVeiculo.volumetotal, dadosVeiculo.connected]"
-        [rotulos]="['Descoonectados','Conectados']"></app-grafico>
-      </div>
-      <div class="col-6 col-md-3 p-1 align-self-center">
-        <app-grafico [dados]="[dadosVeiculo.volumetotal, dadosVeiculo.softwareUpdates]"
-        [rotulos]="['Desatualizados','Atualizados']"></app-grafico>
-      </div>
-    </div>
-  </div>
-  <!-- Mensagem de erro -->
-  <div *ngIf="!dadosVeiculo">
-    <div class="row justify-content-center">
-      <div class="spinner-border m-5 align-self-center text-primary" role="status">
-        <span class="sr-only"></span>
-      </div>
-      <div class="alert alert-warning" role="alert">
-        <i class="fa fa-exclamation-triangle"></i> Aguardando dados...
+      <div class="row justify-content-center p-2">
+        <div class="col-12 col-md-6 align-self-center p-2">
+          <div class="card h-100 shadow-sm bg-body rounded py-2" id="cardVeiculo">
+            <app-img-vaiculo [img]="imgVeiculo"></app-img-vaiculo>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 p-2">
+          <div class="card shadow-sm bg-body rounded">
+          <div class="row">
+            <div class="col-6 align-self-center">
+              <app-grafico
+              [dados]="[dadosVeiculo.volumetotal, dadosVeiculo.connected]"
+              [rotulos]="['Descoonectados', 'Conectados']"
+              ></app-grafico>
+            </div>
+            <div class="col-6 align-self-center">
+              <app-grafico
+              [dados]="[dadosVeiculo.volumetotal, dadosVeiculo.softwareUpdates]"
+              [rotulos]="['Desatualizados', 'Atualizados']"
+              ></app-grafico>
+            </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

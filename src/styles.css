@@ -2,6 +2,9 @@
 2E4959
 111C38
  */
+ body {
+  background-color: #f8f9fa;
+ }
 .BG-BLUE_1{
   background-color: #0D05F2;
 }

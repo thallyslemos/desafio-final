@@ -1,3 +1,6 @@
 #imgVeiculo {
   min-height: 130px;
 }
+#cardVeiculo {
+  max-height: 200px;
+}

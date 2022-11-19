@@ -1,11 +1,17 @@
 a {
   text-decoration: none;
+  font-weight: 500;
+}
+a:hover {
+  font-weight: bold;
+  opacity: 50%;
 }
 
 #cabeçalhoLogOut {
   height: 54px;
 }
 .active-link {
-  border-left: 5px outset blue;
+  border-left: 5px groove blue;
+  border-radius: 2px;
   background-color: aliceblue;
 }
