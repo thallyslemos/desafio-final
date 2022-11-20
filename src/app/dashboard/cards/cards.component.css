@@ -1,6 +1,7 @@
-#imgVeiculo {
-  min-height: 130px;
-}
-#cardVeiculo {
+.CARD-LG {
   max-height: 200px;
+  margin: 20px 0;
+}
+.CARD-SM {
+  max-width: 250px;
 }
