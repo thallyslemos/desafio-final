@@ -1,11 +1,14 @@
 .bgRanger{
-  background-image: url('src\assets\img\ranger.png') ;
+  position:absolute;
+  top: 5vh;
+  background-image: url('src\assets\img\rangerTransparent.webp') ;
   background-size:100%;
   background-repeat: no-repeat;
-  margin-top: 20vh;
-  min-height: 70vh;
+  margin: auto;
+  min-height: 80vh;
 }
 #cardBoasVindas {
+  margin-top: 50px ;
   height: 40vw;
   max-height: 200px;
   min-height: 100px;
