@@ -1,23 +1,41 @@
-<div class="card BORDER-BLUE_1 shadow-lg p-3 mx-auto bg-body rounded ">
+<div class="card BORDER-BLUE_1 shadow-lg p-3 mx-auto bg-body rounded">
   <div class="form-singin p-2">
     <form class="form mt-4" (ngSubmit)="login()" #loginForm="ngForm">
       <div class="text-center">
-      <img class="mb-2" src="assets/img/ford.png" alt="Logo Ford" width="100" >
-      <h2 class="text TEXT-BLUE_1 m-3 fw-bolder">Bem Vindo</h2>
-    </div>
-    <div class="form-floating mb-2">
-      <input class="form-control" id="floatingInput" placeholder="Nome do usuário"
-      [(ngModel)]="usuario" name="usuario"  required="" />
-      <label for="floatingInput">Usuário</label>
-    </div>
-    <div class="form-floating mb-2">
-      <input type="password" class="form-control" id="floatingPassword" placeholder="Senha"
-      [(ngModel)]="senha" name="senha" required=""/>
-      <label for="floatingPassword">Senha</label>
-    </div>
-    <div class="text-center mt-4">
-      <button type="submit" class="btn btn-primary w-50 fw-bold" >Login</button>
-    </div>
-  </form>
-</div>
+        <img
+          class="mb-2"
+          src="assets/img/ford.png"
+          alt="Logo Ford"
+          width="100"
+        />
+        <h2 class="text TEXT-BLUE_1 m-3 fw-bolder">Bem Vindo</h2>
+      </div>
+      <div class="form-floating mb-2">
+        <input
+          class="form-control"
+          id="floatingInput"
+          placeholder="Nome do usuário"
+          [(ngModel)]="usuario"
+          name="usuario"
+          required=""
+        />
+        <label for="floatingInput">Usuário</label>
+      </div>
+      <div class="form-floating mb-2">
+        <input
+          type="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Senha"
+          [(ngModel)]="senha"
+          name="senha"
+          required=""
+        />
+        <label for="floatingPassword">Senha</label>
+      </div>
+      <div class="text-center mt-4">
+        <button type="submit" class="btn w-50 fw-bold">Login</button>
+      </div>
+    </form>
+  </div>
 </div>

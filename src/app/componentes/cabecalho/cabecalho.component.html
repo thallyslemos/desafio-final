@@ -1,38 +1,61 @@
 <header class="sticky-top">
   <div class="text-white" *ngIf="user$ | async as user">
-    <div *ngIf="(user.name); else userLoggedOut">
-      <nav class="navbar BG-BLUE_3 px-1" >
-        <button class="btn text-white" (click)="menu.openMenu()" (keyup.space)="menu.openMenu()">
-        <i class="fa fa-bars mx-2"></i>
-      </button>
+    <div *ngIf="user.name; else userLoggedOut">
+      <nav class="navbar BG-BLUE_3 px-1">
+        <button
+          class="btn text-white"
+          (click)="menu.openMenu()"
+          (keyup.space)="menu.openMenu()"
+        >
+          <i class="fa fa-bars mx-2"></i>
+        </button>
         <app-menu #menu>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="active-link">
-              <a class="nav-link text-primary p-2" [routerLink]="['home']" aria-current="home">Home</a>
+            <li
+              class="list-group-item list-group-item-action list-group-item-light"
+              routerLinkActive="active-link"
+            >
+              <a
+                class="nav-link text-primary p-2"
+                [routerLink]="['home']"
+                aria-current="home"
+                >Home</a
+              >
             </li>
-            <li class="list-group-item list-group-item-action list-group-item-light" routerLinkActive="active-link">
-              <a class="nav-link text-primary p-2" [routerLink]="['dashboard']" >Dashboard</a>
+            <li
+              class="list-group-item list-group-item-action list-group-item-light"
+              routerLinkActive="active-link"
+            >
+              <a class="nav-link text-primary p-2" [routerLink]="['dashboard']"
+                >Dashboard</a
+              >
             </li>
           </ul>
         </app-menu>
         <div class="mx-2">
-          <button class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" (click)="dropdown.openMenu()" (keyup.Space)="dropdown.openMenu()">
-            <i class="fa fa-user-circle "></i>
+          <button
+            class="btn dropdown-toggle text-white"
+            data-bs-toggle="dropdown"
+            (click)="dropdown.openMenu()"
+            (keyup.Space)="dropdown.openMenu()"
+          >
+            <i class="fa fa-user-circle"></i>
           </button>
           <app-dropdown #dropdown>
             <i>
               <a class="navbar-brand p-2">
-                <i class="fa fa-user-circle text-primary "></i>
+                <i class="fa fa-user-circle text-primary"></i>
                 <a class="link-primary fw-bold mx-1">{{ user.name }}</a>
               </a>
             </i>
             <i>
               <a class="navbar-brand p-2">
                 <i class="fa fa-sign-out text-primary"></i>
-                <a class="link-primary mx-1" (click)="logout()" href="">Logout</a>
+                <a class="link-primary mx-1" (click)="logout()" href=""
+                  >Logout</a
+                >
               </a>
             </i>
-
           </app-dropdown>
         </div>
       </nav>
