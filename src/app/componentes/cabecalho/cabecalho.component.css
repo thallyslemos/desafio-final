@@ -1,13 +1,14 @@
 header {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-a {
+li {
   text-decoration: none;
   font-weight: 500;
+  transition: 300ms;
 }
-a:hover {
-  font-weight: bold;
+li:hover {
   opacity: 50%;
+  border-left: 5px groove blue;
 }
 
 #cabeçalhoLogOut {
@@ -15,9 +16,15 @@ a:hover {
 }
 .active-link {
   border-left: 5px groove blue;
-  border-radius: 2px;
   background-color: aliceblue;
 }
 button {
   transition: 300ms;
+}
+a a {
+  text-decoration: none;
+  transition: 300ms;
+}
+a a:hover {
+  opacity: 50%;
 }

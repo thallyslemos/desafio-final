@@ -1,15 +1,17 @@
+/* Barra de navegação lateral */
 .menu-bar{
   position: fixed;
   height: 100%;
   width: 90%;
   max-width: 240px;
   margin: 0;
-  padding: 1em;
+  padding: 1em 0;
   background: #fff;
   top: 0;
   left: -90%;
-  transition: left 0.3s ease-out;
+  transition: left 0.4s ease-out;
   z-index: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .active-menu .menu-bar {
   left: 0;

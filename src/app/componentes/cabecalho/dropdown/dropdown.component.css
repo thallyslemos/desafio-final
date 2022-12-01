@@ -1,3 +1,4 @@
+/* Menu de logout */
 .menu-bar{
   position: fixed;
   height: auto;
@@ -13,6 +14,7 @@
   z-index: 1;
   border-radius: 5%;
   font-size: 1em;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .active-menu .menu-bar {
   top: 3.5rem;
