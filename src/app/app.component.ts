@@ -66,6 +66,7 @@ export class AppComponent {
     tertiaryColour: this.primaryColour,
     backdropBorderRadius: '3px',
   };
+  title: any;
 
   prepareRoute(outlet: RouterOutlet) {
     return outlet?.activatedRouteData?.['animation'];
